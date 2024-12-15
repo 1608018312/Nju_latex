@@ -45,6 +45,7 @@
     %
     %   字体设置，不填写则自动调用系统预装字体，详见手册
     % fontset = win|mac|macoffice|fandol|none,
+    type = doctor,
   ]{njuthesis}
 
 % 模板选项设置，包括个人信息、外观样式等
@@ -111,15 +112,13 @@
 % 即新建一个 chapters 文件夹
 % 把每一章的内容单独放入一个 .tex 文件
 % 然后在这里用 \include 导入，例如
-%   \include{chapters/introduction}
-%   \include{chapters/environments}
+\include{chapters/introduction}
+\include{chapters/chapter_1}
+\include{chapters/chapter_2}
+\include{chapters/chapter_3}
+\include{chapters/conclusion}
 
-\chapter{引言}
 
-\section{量子计算}
-
-John Preskill 认为我们现在处于“含噪声的中型量子时代”。\cite{preskill2018}
-量子位的不稳定性和有限的量子比特数量限制了量子计算机的复杂度和纠错能力。
 
 %---------------------------------------------------------------------
 %	参考文献
@@ -141,19 +140,19 @@ John Preskill 认为我们现在处于“含噪声的中型量子时代”。\ci
 %---------------------------------------------------------------------
 
 % 详见手册中“成果列表”一节
-% \njuchapter{学术成果}
-% \njupaperlist[攻读博士学位期间发表的学术论文]{preskill2018}
+\njuchapter{学术成果}
+\njupaperlist[攻读博士学位期间发表的学术论文]{preskill2018}
 
 %---------------------------------------------------------------------
 %	附录部分
 %---------------------------------------------------------------------
 
 % 附录部分使用单独的字母序号
-\appendix
+% \appendix
 
 % 可以在这里插入补充材料
-\chapter{正文中涉及的数据及源代码}
-\dots
+% \chapter{正文中涉及的数据及源代码}
+% \dots
 
 % 完工
 \end{document}
