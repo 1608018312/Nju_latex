@@ -2,388 +2,132 @@
 \section{引言}
 
 \section{电声类比方法}
+
+由于我们在用声学实现拓扑效应时，很多情况下是利用腔管共振结构实现声学结构和电子晶格结构的对应。而在声学研究中，电声类比是研究这类结构的一种常用方法。它适用于结构尺寸远小于波长的情况，是一种将集总参数的电路系统和声学系统进行类比分析的有效手段。它基于电学和声学在某些物理特性和数学描述上的相似性，建立起两者之间的对应关系，从而借助电学中成熟的理论和分析方法来研究声学问题。
+在这种类比中，电学中的电压、电流、电阻、电容、电感等概念分别与声学中的声压、体积速度、声阻、声容、声感等概念相对应。通过电声类比，我们可以将复杂的声学系统转化为等效的电学电路模型，利用电路分析的方法来求解声学系统的特性，因此本节首先介绍这种方法。
+
 \subsection{声容}
-声容的推导从绝热近似的状态方程出发，假设声波传播过程为绝热过程，则
 
-\[
-pV^\gamma = \text{常数},
-\]
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images/fig2-1.eps} 
+  \caption{声容示意图 }
+  \label{fig_2_1}
+\end{figure}
 
+对于一个壁面为刚性边界且带开口的腔体，当腔体里面的空气振动时，其声压和体积变化存在着某种关系。当开口较小且波长远大于结构尺寸时，这种关系往往是线性化的。我们可以把这样的结构称为声容，如图\ref{fig_2_1}。声容的推导从绝热近似的状态方程出发，假设声波传播过程为绝热过程，则
+\begin{equation} \label{eq2-1}
+  pV^\gamma = \text{常数},
+\end{equation}
 其中 \(p\) 为气体压力，\(V\) 为气体体积，\(\gamma = \frac{C_p}{C_v}\) 为绝热指数。对该公式取对数后对时间求导，得到
-
-\[
-V^\gamma \frac{dp}{dt} + \gamma p V^{\gamma-1} \frac{dV}{dt} = 0,
-\]
-
+\begin{equation} \label{eq2-2}
+  V^\gamma \frac{dp}{dt} + \gamma p V^{\gamma-1} \frac{dV}{dt} = 0,
+\end{equation}
 整理为
-
-\[
-\frac{dp}{p} + \gamma \frac{dV}{V} = 0.
-\]
-
+\begin{equation} \label{eq2-3}
+  \frac{dp}{p} + \gamma \frac{dV}{V} = 0,
+\end{equation}
 假设声波的压力和体积变化为微小量，即
-
-\[
-p = p_0 + \Delta p, \quad V = V_0 + \Delta V,
-\]
-
+\begin{equation} \label{eq2-4}
+  p = p_0 + \Delta p, \quad V = V_0 + \Delta V,
+\end{equation}
 代入后忽略高阶小量项，得
-
-\[
-\frac{\Delta p}{p_0} = -\gamma \frac{\Delta V}{V_0}.
-\]
-
+\begin{equation} \label{eq2-5}
+  \frac{\Delta p}{p_0} = -\gamma \frac{\Delta V}{V_0},
+\end{equation}
 从中可得体积变化和压力变化之间的关系为
-
-\[
-\Delta V = -\frac{V_0}{\gamma p_0} \Delta p.
-\]
-
+\begin{equation} \label{eq2-6}
+  \Delta V = -\frac{V_0}{\gamma p_0} \Delta p
+\end{equation}
 声容 \(C_a\) 定义为单位压力变化引起的体积变化：
-
-\[
-C_a = \frac{\Delta V}{\Delta p}.
-\]
-
+\begin{equation} \label{eq2-7}
+  C_a = \frac{\Delta V}{\Delta p},
+\end{equation}
 将上述关系式代入后得到
-
-\[
-C_a = \frac{V_0}{\gamma p_0}.
-\]
-
+\begin{equation} \label{eq2-8}
+  C_a = \frac{V_0}{\gamma p_0},
+\end{equation}
 进一步结合声速的定义
-
-\[
-c^2 = \frac{\gamma p_0}{\rho_0},
-\]
-
+\begin{equation} \label{eq2-9}
+  c^2 = \frac{\gamma p_0}{\rho_0},
+\end{equation}
 将 \(\gamma p_0\) 替换为 \(\rho_0 c^2\)，最终得声容的表达式
-
-\[
-C_a = \frac{V}{\rho_0 c^2}.
-\]
-
+\begin{equation} \label{eq2-10}
+  C_a = \frac{V}{\rho_0 c^2},
+\end{equation}
 这一公式揭示了声容取决于腔体体积 \(V\)、介质密度 \(\rho_0\) 和声速 \(c\)，其中声容越大表示腔体对压力变化的响应越显著。
 
 \subsection{声质量}
 
-声质量的推导从牛顿第二定律开始。假设在声学系统中，颈管内的空气柱被视为振动的质点，其运动遵循牛顿第二定律：
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images/fig2-2.eps} 
+  \caption{声质量示意图 }
+  \label{fig_2_2}
+\end{figure}
 
-\[
-F = M \frac{d^2 x}{dt^2},
-\]
-
+当短管足够小，我们可以认为短管里的空气是整体振动的，此时可以把它视作质点，或者声质量，如图\ref{fig_2_2}。声质量的推导从牛顿第二定律开始。假设在声学系统中，颈管内的空气柱被视为振动的质点，其运动遵循牛顿第二定律：
+\begin{equation} \label{eq2-11}
+  F = M \frac{d^2 x}{dt^2},
+\end{equation}
 其中 \( F \) 为作用在空气柱上的力，\( M \) 为空气柱的质量，\( x \) 为空气柱的位移。对于声波传播，作用力由声压差产生，可以表示为：
-
-\[
-F = \Delta p \cdot A,
-\]
-
+\begin{equation} \label{eq2-12}
+  F = \Delta p \cdot A,
+\end{equation}
 其中 \( \Delta p \) 为两端声压差，\( A \) 为颈管的截面积。空气柱的质量 \( M \) 表示为：
-
-\[
-M = \rho_0 l_{\text{eff}} A,
-\]
-
+\begin{equation} \label{eq2-13}
+  M = \rho_0 l_{\text{eff}} A,
+\end{equation}
 其中 \( \rho_0 \) 为空气的静态密度，\( l_{\text{eff}} \) 为颈管的有效长度，考虑了端点修正（通常为 \( l + 1.7r \)，其中 \( r \) 是颈管半径）。将 \( F \) 和 \( M \) 表达式代入牛顿第二定律，得到：
-
-\[
-\Delta p \cdot A = \rho_0 l_{\text{eff}} A \frac{d^2 x}{dt^2}.
-\]
-
+\begin{equation} \label{eq2-14}
+  \Delta p \cdot A = \rho_0 l_{\text{eff}} A \frac{d^2 x}{dt^2},
+\end{equation}
 简化为：
-
-\[
-\Delta p = \rho_0 l_{\text{eff}} \frac{d^2 x}{dt^2}.
-\]
-
+\begin{equation} \label{eq2-15}
+  \Delta p = \rho_0 l_{\text{eff}} \frac{d^2 x}{dt^2},
+\end{equation}
 由体积流量 \( U \) 的定义，\( U = A \frac{dx}{dt} \)，两次对时间求导后，得到空气柱的加速度与体积流量的关系：
-
-\[
-\frac{d^2 x}{dt^2} = \frac{1}{A} \frac{dU}{dt}.
-\]
-
+\begin{equation} \label{eq2-16}
+  \frac{d^2 x}{dt^2} = \frac{1}{A} \frac{dU}{dt},
+\end{equation}
 代入上述公式，得到：
-
-\[
-\Delta p = \rho_0 l_{\text{eff}} \frac{1}{A} \frac{dU}{dt}.
-\]
-
+\begin{equation} \label{eq2-17}
+  \Delta p = \rho_0 l_{\text{eff}} \frac{1}{A} \frac{dU}{dt},
+\end{equation}
 整理后可得空气柱的声质量表达式：
-
-\[
-L_a = \frac{\rho_0 l_{\text{eff}}}{A}.
-\]
-
+\begin{equation} \label{eq2-18}
+  L_a = \frac{\rho_0 l_{\text{eff}}}{A},
+\end{equation}
 这一公式表明，声质量 \( L_a \) 是由空气的静态密度 \(\rho_0\)、颈管的有效长度 \(l_{\text{eff}}\) 和截面积 \(A\) 决定的，其中 \( L_a \) 越大，表示空气柱对流量变化的惯性越强。
 
 \subsection{声阻}
-声阻的推导从牛顿第二定律和流体动力学的基本方程出发，描述了声波传播时介质中摩擦力引起的阻力。假设声波通过一个窄管时，声阻力来源于空气柱在运动过程中与管壁之间的黏性摩擦。牛顿第二定律为：
-
-\[
-F = M \frac{d^2 x}{dt^2},
-\]
-
+短管中的空气振动时，往往会收到壁面的阻力，线性化且集总参数的情况下，阻力的大小被视为和速度成正比。声阻的推导从牛顿第二定律和流体动力学的基本方程出发，描述了声波传播时介质中摩擦力引起的阻力。假设声波通过一个窄管时，声阻力来源于空气柱在运动过程中与管壁之间的黏性摩擦。牛顿第二定律为：
+\begin{equation} \label{eq2-19}
+  F = M \frac{d^2 x}{dt^2},
+\end{equation}
 其中 \( F \) 是作用在空气柱上的总力，\( M \) 是空气柱的质量，\( x \) 是空气柱的位移。在考虑摩擦力的情况下，总力 \( F \) 包含两个分量：由压力差引起的驱动力 \( F_p = \Delta p \cdot A \) 和与速度成正比的阻力 \( F_r = R_a \frac{dx}{dt} \)，其中 \( R_a \) 是声阻。由此，总力可以表示为：
-
-\[
-\Delta p \cdot A - R_a \frac{dx}{dt} = M \frac{d^2 x}{dt^2}.
-\]
-
+\begin{equation} \label{eq2-20}
+  \Delta p \cdot A - R_a \frac{dx}{dt} = M \frac{d^2 x}{dt^2},
+\end{equation}
 空气柱的质量 \( M \) 表达为：
-
-\[
-M = \rho_0 l A,
-\]
-
+\begin{equation} \label{eq2-21}
+  M = \rho_0 l A,
+\end{equation}
 其中 \( \rho_0 \) 为空气密度，\( l \) 为空气柱的长度，\( A \) 为管道的截面积。将体积流量 \( U = A \frac{dx}{dt} \) 代入，声压差与流量的关系变为：
-
-\[
-\Delta p = R_a \frac{U}{A} + \rho_0 l \frac{1}{A} \frac{dU}{dt}.
-\]
-
+\begin{equation} \label{eq2-22}
+  \Delta p = R_a \frac{U}{A} + \rho_0 l \frac{1}{A} \frac{dU}{dt},
+\end{equation}
 忽略惯性项（即空气柱的质量效应较小的情况下），可以得到声阻的定义：
-
-\[
-R_a = \frac{\Delta p}{\frac{U}{A}}.
-\]
-
+\begin{equation} \label{eq2-23}
+  R_a = \frac{\Delta p}{\frac{U}{A}},
+\end{equation}
 对于圆形管道，声阻可以进一步结合流体动力学中的黏性摩擦公式推导，其值为：
-
-\[
-R_a = \frac{8 \mu l}{\pi r^4},
-\]
-
+\begin{equation} \label{eq2-24}
+  R_a = \frac{8 \mu l}{\pi r^4},
+\end{equation}
 其中 \( \mu \) 是空气的动态黏性系数，\( l \) 是管道的长度，\( r \) 是管道的半径。这一公式表明，声阻 \( R_a \) 与介质的黏性和管道的几何尺寸（长度和半径）直接相关，管道越窄，声阻越大，黏性越强，声阻也越大，从而对体积流量的变化产生显著的阻碍作用。
 
-\section{零阶模式的声学哈密顿量}
-
-在文章中，哈密顿量的推导较为详细，主要涉及以下几个步骤和公式：
-
-文章中首先通过声学-电学类比来定义声学系统的 lumped 参数模型。在该模型中，腔体被表示为电容 \( C \)，波导被表示为电感 \( L_v \) 和 \( L_w \)。具体公式如下：
-\[
-C = \frac{V}{\rho c^2}
-\]
-\[
-L_v = \frac{\rho (l_v + 1.7r_v)}{\pi r_v^2}, \quad L_w = \frac{\rho (l_w + 1.7r_w)}{\pi r_w^2}
-\]
-其中，\( V \) 是腔体的体积，\( \rho \) 是空气的密度，\( c \) 是声速，\( r_v \) 和 \( r_w \) 分别是波导的半径，\( l_v \) 和 \( l_w \) 是它们的长度。
 
 
-通过应用基尔霍夫电流定律，文章得到了描述声学波动的方程。对于周期性结构，腔体的声压在每个晶格点处满足如下方程：
-\[
-- (2w + 2v) u_1^0 + w u_2^0 + w u_3^0 + v u_2^6 + v u_3^1 = \omega^2 u_1^0
-\]
-\[
-- (2w + 2v) u_2^0 + w u_3^0 + w u_1^0 + v u_3^2 + v u_1^3 = \omega^2 u_2^0
-\]
-\[
-- (2w + 2v) u_3^0 + w u_1^0 + w u_2^0 + v u_1^4 + v u_2^5 = \omega^2 u_3^0
-\]
-其中，\( u_n^m \) 表示第 \( n \) 个腔体在第 \( m \) 个晶格上的声压，\( w = -\frac{1}{L_v C} \)，\( v = -\frac{1}{L_w C} \) 是与腔体和波导的物理参数相关的系数，\( \omega \) 是角频率。
 
-
-通过上述方程，可以将哈密顿量表示为矩阵形式。在周期性结构下，哈密顿量 \( H_0(k) \) 以矩阵的形式表示为：
-\[
-H_0(k) =
-\begin{pmatrix}
--2w - 2v & w + v e^{i k \cdot (a_1 + a_2)} & w + v e^{i k \cdot a_1} \\
-w + v e^{-i k \cdot (a_1 + a_2)} & -2w - 2v & w + v e^{-i k \cdot a_2} \\
-w + v e^{-i k \cdot a_1} & w + v e^{i k \cdot a_2} & -2w - 2v
-\end{pmatrix}
-\]
-这里，\( k \) 是布里渊区内的波矢，\( a_1 \) 和 \( a_2 \) 是晶格常数。
-
-
-考虑到实际声学系统的边界条件，文章进一步推导了边界对哈密顿量的影响。对于有限结构，硬边界和软边界条件分别影响哈密顿量的对角项。
-
-- **硬边界条件**：对于硬边界，腔体的对角项变为：
-  \[
-  - (2w + v)
-  \]
-  
-- **软边界条件**：对于软边界，腔体的对角项变为：
-  \[
-  - (2w + 2v)
-  \]
-
-
-文章进一步通过计算系统的拓扑极化，来揭示哈密顿量与拓扑相之间的关系。极化 \( p \) 的计算通过下式给出：
-\[
-e^{-i \pi p} = \prod_{n \in \text{occ}} \theta_n(K) \theta_n(\Gamma)
-\]
-其中，\( \theta_n(k) = \langle u_n(k) | R_3 | u_n(k) \rangle \) 是通过三重对称操作 \( R_3 \) 计算得到的本征值，\( n \) 是占据的能带，\( K \) 和 \( \Gamma \) 是高对称点。
-
-
-通过上述推导，文章揭示了软边界条件如何保留系统的拓扑特性，特别是角落态的存在，这些角落态与电子系统中的零能态相对应。
-
-总结而言，哈密顿量的推导通过声学电学类比、基尔霍夫电流定律以及周期性结构的布洛赫波函数方法，详细描述了声学拓扑晶体绝缘体的物理特性，同时揭示了边界条件对拓扑态的关键作用。
-
-\section{一阶模式的声学哈密顿量}
-
-为了审慎地展示Kitaev链的严格声学对应性，我们详细展示了完整的推导过程。
-
-我们从一个单声学腔开始，该腔体与单元腔中连接的管道相连，如主文图1(a)所示（图S1中也提供了更详细的信息）。该腔体对应的经典格林函数定义为 \( G(\vec{r}, \vec{r}') \)。
-
-当声波传播频率 \( \omega \) 位于特定模式下（即 \( P_z \)-偶极模式），其声速势场的归一化分布为：
-\[
-\psi(\vec{r}) = \sqrt{\frac{2}{w^2 h}} \sin\left(\frac{\pi x}{h}\right)，
-\]
-如主文所示，此时 \( G(\vec{r}, \vec{r}') \) 可以简化为：
-\[
-G(\vec{r}, \vec{r}') = \sum_j \frac{c_0^2}{\omega_j^2 - \omega^2} \psi_j(\vec{r}) \psi_j(\vec{r}')
-\approx \frac{c_0^2}{\omega_0^2 - \omega^2} \psi(\vec{r}) \psi(\vec{r}'). 
-\]
-
-其中，\( \psi(\vec{r}) \) 是位置 \( \vec{r} \) 处的声速势，\( \omega_0 \) 是 \( P_z \)-偶极模式的固有频率，该模式表现为腔内的驻波。需要强调的是，当 \( \omega \) 接近 \( \omega_0 \) 时，上述近似是成立的。
-
-因此，腔体中声压的场分布可以表示为：
-\[
-p(\vec{r}) = -i \rho \omega \oint_{\partial V} G(\vec{r}, \vec{r}') \vec{v}(\vec{r}') \mathrm{d}S'
-= -\frac{i \rho c_0^2 \omega}{\omega_0^2 - \omega^2} \oint_{\partial V} \psi(\vec{r}') \vec{v}(\vec{r}') \mathrm{d}S', 
-\]
-其中 \( \vec{v}(\vec{r}') \) 表示声学速度，\( S' \) 表示腔体的表面积。
-
-由于声学硬边界条件使得 \( \vec{v} = 0 \)，方程(S2)中的积分仅在管道的两端不为零。因此，有效面积 \( S' \) 可表示为：
-\[
-S' = S^t + 2S^A + S^\mu，
-\]
-其中上标分别表示对应的管道区域，如图S1(b)中的虚线区域所示。
-
----
-
-为了进一步区分单元腔体中的两个腔体的参数，我们引入下标 \( j = 1, 2 \)，并定义Kitaev链中波函数的关键参数 \( \xi = [\xi_1, \xi_2]^T \)。它们与Kitaev链中的波函数相关联，可以定义为：
-\[
-\xi_1 = \frac{p_1(\vec{r})}{v_1(\vec{r})} = \frac{-i \rho c_0^2}{\omega_0^2 - \omega^2} \oint_{\partial V_1} \psi^*(\vec{r}') \vec{v}_1(\vec{r}') \mathrm{d}S',
-\]
-\[
-\xi_2 = \frac{p_2(\vec{r})}{v_2(\vec{r})} = \frac{-i \rho c_0^2}{\omega_0^2 - \omega^2} \oint_{\partial V_2} \psi^*(\vec{r}') \vec{v}_2(\vec{r}') \mathrm{d}S'. 
-\]
-
-将方程(S2)代入并结合体积和表面特性，可以分别表示为：
-\[
-\xi_1 = -\frac{c_0^2 d^2}{2(\omega_0^2 - \omega^2)} \left[ -\nu_1(0) \psi_1^A + \nu_1(0) \psi_1^A e^{-ika} + \nu_1^A(\psi_2^A e^{-ika}) \right]，
-\]
-\[
-\xi_2 = -\frac{c_0^2 d^2}{2(\omega_0^2 - \omega^2)} \left[ -\nu_2(0) \psi_2^A + \nu_2(0) \psi_2^A e^{-ika} + \nu_2^A(\psi_1^A e^{-ika}) \right]. 
-\]
-
-其中 \( V = w^2 h \) 是腔体的体积，\( \bar{\psi}_j^m \) 是与 \( j \)-th 腔连接的第 \( m \)-根管末端声速势的平均值。对于所有管道具有相同的横截面积和 \( r_c \) 值，由以下关系得出：
-\[
-\bar{\psi}_1 = \bar{\psi}_2 = -\bar{\psi}_1^t = -\bar{\psi}_2^t = \psi，
-\]
-因此可以得出 \( \bar{\psi}_j^m = |\psi| \)。同时需要注意，这种近似在管道尺寸远小于腔体尺寸的情况下是适用的。
-
-根据这些结果，可以以 \( \xi \) 表示声压：
-\[
-p_j^t(0) = \xi_j \bar{\psi}_j, \quad
-p_j^t(l_m^t) = \xi_j \bar{\psi}_j^t, \quad
-p_j^t(f_j) = e^{ika} \xi_j \bar{\psi}_j^t,
-\]
-\[
-p_1^A = e^{ika} \xi_2 \bar{\psi}_2^t, \quad
-p_2^A = e^{ika} \xi_1 \bar{\psi}_1^t,
-\]
-\[
-p_j^\mu = \xi_j \sqrt{\frac{2}{V}}. 
-\]
-
-为了映射严格的对应关系，我们现在重点分析管道的声学连接条件。假设结构内声波以平面波形式传播，则在一个单元腔中第 \( j \)-th 腔的声压和声速可以表示为：
-\[
-p_m^j(l) = A_m^j e^{i\omega l/c_0} + B_m^j e^{-i\omega l/c_0},
-\]
-\[
-\rho_0 c_0 v_m^j(l) = A_m^j e^{i\omega l/c_0} - B_m^j e^{-i\omega l/c_0}, 
-\]
-其中 \( m \) 表示 \( t \) 和 \( \Delta \)。
-
-通过将 \( l = 0 \) 和 \( l = l_m^t \) 代入方程(S4)，可以很容易地得到以下关系：
-\[
-i\rho c_0
-\begin{pmatrix}
-v_j^t(0) \\
-v_j^t(l_m^t)
-\end{pmatrix}
-=
-\begin{pmatrix}
-\cot(\omega l_m^t / c_0) & -\csc(\omega l_m^t / c_0) \\
--\csc(\omega l_m^t / c_0) & \cot(\omega l_m^t / c_0)
-\end{pmatrix}
-\begin{pmatrix}
-p_j^t(0) \\
-p_j^t(l_m^t)
-\end{pmatrix}. 
-\]
-
-对于额外的管道（标记为 \( \mu \)）且一端闭合，则满足以下关系：
-\[
-v_j^\mu = \frac{p_j^\mu}{Z_j^\mu},
-\]
-其中 \( Z_j^\mu \) 是连接腔体的端部阻抗。当闭合端为声学硬边界时：
-\[
-Z_j^\mu = -i\rho c_0 \cot(\omega l_j^\mu / c_0)，
-\]
-而当闭合端为声学软边界时：
-\[
-Z_j^\mu = i\rho c_0 \tan(\omega l_j^\mu / c_0)。
-\]
-
-进一步地，将方程(S4)-(S7)代入方程(S3)，波函数方程可以以矩阵形式表示为：
-\[
-\omega^2 \xi = (H_0 + H_a(k)) \xi, 
-\]
-其中：
-\[
-H_0 =
-\begin{pmatrix}
-\omega_0 + \epsilon_1 & 0 \\
-0 & \omega_0 + \epsilon_2
-\end{pmatrix},
-\quad
-H_a(k) =
-\begin{pmatrix}
-\mu_1 + 2t_1\cos(ka) & \Delta_1 e^{ika} + \Delta_2 e^{-ika} \\
-\Delta_1 e^{-ika} + \Delta_2 e^{ika} & \mu_2 + 2t_2\cos(ka)
-\end{pmatrix}. 
-\]
-其中
-\[
-\epsilon_1 = \frac{cd^2 |\psi|^2}{2} \left[ 2\cot\left(\frac{\omega_0 l_1^t}{c_0}\right) + \cot\left(\frac{\omega_0 l_1^A}{c_0}\right) + \cot\left(\frac{\omega_0 l_2^A}{c_0}\right) \right],
-\]
-\[
-\epsilon_2 = \frac{cd^2 |\psi|^2}{2} \left[ 2\cot\left(\frac{\omega_0 l_2^t}{c_0}\right) + \cot\left(\frac{\omega_0 l_1^A}{c_0}\right) + \cot\left(\frac{\omega_0 l_2^A}{c_0}\right) \right],
-\]
-\[
-t_1 = -\frac{cd^2 |\psi|^2}{2} \csc\left(\frac{\omega_0 l_1^t}{c_0}\right), \quad
-t_2 = -\frac{cd^2 |\psi|^2}{2} \csc\left(\frac{\omega_0 l_2^t}{c_0}\right),
-\]
-\[
-\Delta_1 = -\frac{cd^2 |\psi|^2}{2} \csc\left(\frac{\omega_0 l_1^A}{c_0}\right), \quad
-\Delta_2 = -\frac{cd^2 |\psi|^2}{2} \csc\left(\frac{\omega_0 l_2^A}{c_0}\right),
-\]
-\[
-\mu_1 = \frac{i\rho c_0^2 d^2}{V Z_1^\mu}, \quad
-\mu_2 = \frac{i\rho c_0^2 d^2}{V Z_2^\mu}. 
-\]
-注意：一旦声学结构确定，所有这些参数都可以直接计算。需要特别指出的是，方程(S10)表明，所有由 \( P_z \) 模式描述的关键强度参数（\( t, \Delta, \mu \)）是解耦的，这与由声学系统谐振基频描述的跃迁不同，因此可以独立设计。
-
-为了构造严格的声学Kitaev链，需要满足以下条件：
-\[
-l_1^t = l_2^t + h， \quad t_1 = -t_2 = -t, \quad
-l_1^A = l_2^A + h，\quad \Delta_1 = -\Delta_2 = -\Delta,
-\]
-并且 \( Z_1^\mu = -Z_2^\mu \)，当 \( \mu_1 = -\mu_2 = -\mu \) 时，这些设置自然确保 \( \epsilon_1 = \epsilon_2 = \epsilon \)。因此，方程(S9)可以简化为：
-\[
-H_0 =
-\begin{pmatrix}
-\omega_0 + \epsilon & 0 \\
-0 & \omega_0 + \epsilon
-\end{pmatrix},
-\quad
-H_a(k) =
-\begin{pmatrix}
--\mu - 2t\cos(ka) & -2i\Delta\sin(ka) \\
-2i\Delta\sin(ka) & \mu + 2t\cos(ka)
-\end{pmatrix}. 
-\]
 
