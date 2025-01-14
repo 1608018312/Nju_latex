@@ -1,170 +1,101 @@
-\chapter{声学彩虹}
+\chapter{基于Kagome晶格的声学哈密顿量推导及边界条件对拓扑态的影响研究}
+
 \section{引言}
 
-\section{一阶模式的声学哈密顿量}
+\section{Kagome晶格与声学结构类比}
 
-为了审慎地展示Kitaev链的严格声学对应性，我们详细展示了完整的推导过程。
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=1\textwidth]{images/fig3-1.eps} 
+  \caption{以Kagome结构为例，电子系统与声学系统存在显著的相似性。}
+  \label{fig_3_1}
+\end{figure}
 
-我们从一个单声学腔开始，该腔体与单元腔中连接的管道相连，如主文图1(a)所示（图S1中也提供了更详细的信息）。该腔体对应的经典格林函数定义为 \( G(\vec{r}, \vec{r}') \)。
+在物理学中，电子系统与声学系统存在显著的相似性。电子系统里，格点、相互作用、能量、电荷分布是关键要素；而在声学系统中，可类比为腔体、导管、频率、声场分布。以图\ref{fig_3_1}的Kagome晶格为例，以下是电子系统和声学系统中几个要素的相似性详细解释：
+\begin{itemize}
+  \item 格点与腔体：在电子系统的晶格模型中，格点是电子所处的位置，电子在这些格点上具有一定的能量状态和量子特性。格点的排列和相互关系决定了电子的能带结构等重要物理性质。而在声学系统中，我们可以把单个腔体看作是一个共振单元，它也具有共振频率和对应的共振模式。而使用周期排列的声学腔体，可以模仿电子晶格空间排列，构造相同的空间对称性。二者在离散化的单个单元共振和多个单元的空间排列上，存在一定的相似性。
+  \item 电子系统的相互作用与声学导管：在电子系统的晶格模型中，电子在晶格中的跳跃等过程可以看作是一种相互作用，它决定了电子在不同格点之间的转移和能量传递。在声学系统中，我们可以在腔体之间连接导管，为不同腔体提供相互作用，并通过调节导管的参数实现对这种相互作用的大小和正负符号的调节。二者在单元和单元的相互作用上存在一定的相似性。
+  \item 能量与频率：在电子系统中，薛定谔方程用于求解电子能量的本征值问题，其能量以离散本征值呈现，相应本征向量描述电子运动状态 。当处于周期结构时，电子会形成能带，其特性受晶格周期性影响。在声学系统里，波动方程的求解同样属于本征值问题，频率（或者频率的平方）作为本征向量，其离散取值决定声波传播模式。在周期结构的声学体系中，声波也会形成类似的能带结构，该结构与声学单元的周期性排列密切相关。二者在本征值问题架构及周期结构下形成能带的特性上，展现出显著的相似性。 
+  \item 电荷分布与声场分布：在电子系统中，电荷分布反映了电子于空间的分布态势，它与电子的能量状态、相互作用及外部电场紧密相连，电荷分布的不均匀会引发电场等物理效应，对电子系统的电学性质和物理行为产生影响。在声学系统里，声场分布体现了声波在空间中的强度、相位分布状况，腔体和导管的结构以及声波传播特性致使声场在空间呈现不同分布模式。二者相似之处在于，它们均是描述各自系统内物理量在空间的分布，且这种分布都会显著影响系统与其他物质的相互作用，以及整个系统的性能表现。特别地，在拓扑绝缘体的研究中，我们可以观测二者的场分布，从而观测其拓扑性质。 
+\end{itemize}
 
-当声波传播频率 \( \omega \) 位于特定模式下（即 \( P_z \)-偶极模式），其声速势场的归一化分布为：
-\[
-\psi(\vec{r}) = \sqrt{\frac{2}{w^2 h}} \sin\left(\frac{\pi x}{h}\right)，
-\]
-如主文所示，此时 \( G(\vec{r}, \vec{r}') \) 可以简化为：
-\[
-G(\vec{r}, \vec{r}') = \sum_j \frac{c_0^2}{\omega_j^2 - \omega^2} \psi_j(\vec{r}) \psi_j(\vec{r}')
-\approx \frac{c_0^2}{\omega_0^2 - \omega^2} \psi(\vec{r}) \psi(\vec{r}'). 
-\]
+从类比的相似性出发，我们构造了如图\ref{fig_3_1}所示的声学结构。图中周期结构以C$_{3}$对称性排列，其中$a_1$和$a_2$是两个方向晶格基矢的大小，用于描述晶格的周期性结构。右侧展示了单个元胞内的三维结构，包含六边形腔体，其边长为$d$，高度为$H$。$l_w$和$l_v$分别对应胞内耦合的导管和胞间导管的长度，$r_w$和$r_v$是分别对应胞内耦合的导管和胞间导管的半径。从直觉上而言，当连接两个腔体的导管的长度更短，横截面积更大，此时两个腔体之间的相互作用更大，对应电子系统中更大的格点间的跳跃。
 
-其中，\( \psi(\vec{r}) \) 是位置 \( \vec{r} \) 处的声速势，\( \omega_0 \) 是 \( P_z \)-偶极模式的固有频率，该模式表现为腔内的驻波。需要强调的是，当 \( \omega \) 接近 \( \omega_0 \) 时，上述近似是成立的。
+\section{Kagome晶格的声学哈密顿量}
 
-因此，腔体中声压的场分布可以表示为：
-\[
-p(\vec{r}) = -i \rho \omega \oint_{\partial V} G(\vec{r}, \vec{r}') \vec{v}(\vec{r}') \mathrm{d}S'
-= -\frac{i \rho c_0^2 \omega}{\omega_0^2 - \omega^2} \oint_{\partial V} \psi(\vec{r}') \vec{v}(\vec{r}') \mathrm{d}S', 
-\]
-其中 \( \vec{v}(\vec{r}') \) 表示声学速度，\( S' \) 表示腔体的表面积。
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=1\textwidth]{images/fig3-2.eps} 
+  \caption{Kagome声学系统的等效电路：
+  (a)元胞Kagome晶格结构，其中晶格0居中，周围相邻的晶格分别编号为1到6。(b)晶格0的等效电路图。
+  }
+  \label{fig_3_2}
+\end{figure}
 
-由于声学硬边界条件使得 \( \vec{v} = 0 \)，方程(S2)中的积分仅在管道的两端不为零。因此，有效面积 \( S' \) 可表示为：
-\[
-S' = S^t + 2S^A + S^\mu，
-\]
-其中上标分别表示对应的管道区域，如图S1(b)中的虚线区域所示。
+如上一节所述，电子系统和声学系统有着相似性，我们可以构造声学腔管结构来类别电子Kagome晶格，也可以通过直觉调控其胞间和胞内的相互作用。在本节中，从声电类比方法出发，我们在亚波长尺度下从传统声学的角度严格推导出具有二维Kagome晶格的声共振系统的哈密顿量，从而揭示理论模型中的胞内或胞间跳跃与实际物理系统中的声学参数之间的联系。
 
----
+首先，我们可以通过声学-电学类比来定义声学系统的 lumped 参数模型，单个单元的等效电路图如图\ref{fig_3_2}所示。在该电路模型中，腔体被表示为电容 \( C \)，波导被表示为电感 \( L_v \) 和 \( L_w \)。具体公式如下：
+\[
+C = \frac{V}{\rho c^2}
+\]
+\[
+L_v = \frac{\rho (l_v + 1.7r_v)}{\pi r_v^2}, \quad L_w = \frac{\rho (l_w + 1.7r_w)}{\pi r_w^2}
+\]
+其中，\( V \) 是腔体的体积，\( \rho \) 是空气的密度，\( c \) 是声速，\( r_v \) 和 \( r_w \) 分别是波导的半径，\( l_v \) 和 \( l_w \) 是它们的长度。
 
-为了进一步区分单元腔体中的两个腔体的参数，我们引入下标 \( j = 1, 2 \)，并定义Kitaev链中波函数的关键参数 \( \xi = [\xi_1, \xi_2]^T \)。它们与Kitaev链中的波函数相关联，可以定义为：
-\[
-\xi_1 = \frac{p_1(\vec{r})}{v_1(\vec{r})} = \frac{-i \rho c_0^2}{\omega_0^2 - \omega^2} \oint_{\partial V_1} \psi^*(\vec{r}') \vec{v}_1(\vec{r}') \mathrm{d}S',
-\]
-\[
-\xi_2 = \frac{p_2(\vec{r})}{v_2(\vec{r})} = \frac{-i \rho c_0^2}{\omega_0^2 - \omega^2} \oint_{\partial V_2} \psi^*(\vec{r}') \vec{v}_2(\vec{r}') \mathrm{d}S'. 
-\]
 
-将方程(S2)代入并结合体积和表面特性，可以分别表示为：
+通过应用基尔霍夫电流定律，我们可以得到了描述声学波动的方程。对于周期性结构，腔体的声压在每个晶格点处满足如下方程：
 \[
-\xi_1 = -\frac{c_0^2 d^2}{2(\omega_0^2 - \omega^2)} \left[ -\nu_1(0) \psi_1^A + \nu_1(0) \psi_1^A e^{-ika} + \nu_1^A(\psi_2^A e^{-ika}) \right]，
+- (2w + 2v) u_1^0 + w u_2^0 + w u_3^0 + v u_2^6 + v u_3^1 = \omega^2 u_1^0
 \]
 \[
-\xi_2 = -\frac{c_0^2 d^2}{2(\omega_0^2 - \omega^2)} \left[ -\nu_2(0) \psi_2^A + \nu_2(0) \psi_2^A e^{-ika} + \nu_2^A(\psi_1^A e^{-ika}) \right]. 
+- (2w + 2v) u_2^0 + w u_3^0 + w u_1^0 + v u_3^2 + v u_1^3 = \omega^2 u_2^0
 \]
+\[
+- (2w + 2v) u_3^0 + w u_1^0 + w u_2^0 + v u_1^4 + v u_2^5 = \omega^2 u_3^0
+\]
+其中，\( u_n^m \) 表示第 \( n \) 个腔体在第 \( m \) 个晶格上的声压，\( w = -\frac{1}{L_v C} \)，\( v = -\frac{1}{L_w C} \) 是与腔体和波导的物理参数相关的系数，\( \omega \) 是角频率。
 
-其中 \( V = w^2 h \) 是腔体的体积，\( \bar{\psi}_j^m \) 是与 \( j \)-th 腔连接的第 \( m \)-根管末端声速势的平均值。对于所有管道具有相同的横截面积和 \( r_c \) 值，由以下关系得出：
-\[
-\bar{\psi}_1 = \bar{\psi}_2 = -\bar{\psi}_1^t = -\bar{\psi}_2^t = \psi，
-\]
-因此可以得出 \( \bar{\psi}_j^m = |\psi| \)。同时需要注意，这种近似在管道尺寸远小于腔体尺寸的情况下是适用的。
 
-根据这些结果，可以以 \( \xi \) 表示声压：
+通过上述方程，可以将哈密顿量表示为矩阵形式。在周期性结构下，哈密顿量 \( H_0(k) \) 以矩阵的形式表示为：
 \[
-p_j^t(0) = \xi_j \bar{\psi}_j, \quad
-p_j^t(l_m^t) = \xi_j \bar{\psi}_j^t, \quad
-p_j^t(f_j) = e^{ika} \xi_j \bar{\psi}_j^t,
-\]
-\[
-p_1^A = e^{ika} \xi_2 \bar{\psi}_2^t, \quad
-p_2^A = e^{ika} \xi_1 \bar{\psi}_1^t,
-\]
-\[
-p_j^\mu = \xi_j \sqrt{\frac{2}{V}}. 
-\]
-
-为了映射严格的对应关系，我们现在重点分析管道的声学连接条件。假设结构内声波以平面波形式传播，则在一个单元腔中第 \( j \)-th 腔的声压和声速可以表示为：
-\[
-p_m^j(l) = A_m^j e^{i\omega l/c_0} + B_m^j e^{-i\omega l/c_0},
-\]
-\[
-\rho_0 c_0 v_m^j(l) = A_m^j e^{i\omega l/c_0} - B_m^j e^{-i\omega l/c_0}, 
-\]
-其中 \( m \) 表示 \( t \) 和 \( \Delta \)。
-
-通过将 \( l = 0 \) 和 \( l = l_m^t \) 代入方程(S4)，可以很容易地得到以下关系：
-\[
-i\rho c_0
+H_0(k) =
 \begin{pmatrix}
-v_j^t(0) \\
-v_j^t(l_m^t)
+-2w - 2v & w + v e^{i k \cdot (a_1 + a_2)} & w + v e^{i k \cdot a_1} \\
+w + v e^{-i k \cdot (a_1 + a_2)} & -2w - 2v & w + v e^{-i k \cdot a_2} \\
+w + v e^{-i k \cdot a_1} & w + v e^{i k \cdot a_2} & -2w - 2v
 \end{pmatrix}
-=
-\begin{pmatrix}
-\cot(\omega l_m^t / c_0) & -\csc(\omega l_m^t / c_0) \\
--\csc(\omega l_m^t / c_0) & \cot(\omega l_m^t / c_0)
-\end{pmatrix}
-\begin{pmatrix}
-p_j^t(0) \\
-p_j^t(l_m^t)
-\end{pmatrix}. 
 \]
+这里，\( k \) 是布里渊区内的波矢，\( a_1 \) 和 \( a_2 \) 是晶格常数。
 
-对于额外的管道（标记为 \( \mu \)）且一端闭合，则满足以下关系：
-\[
-v_j^\mu = \frac{p_j^\mu}{Z_j^\mu},
-\]
-其中 \( Z_j^\mu \) 是连接腔体的端部阻抗。当闭合端为声学硬边界时：
-\[
-Z_j^\mu = -i\rho c_0 \cot(\omega l_j^\mu / c_0)，
-\]
-而当闭合端为声学软边界时：
-\[
-Z_j^\mu = i\rho c_0 \tan(\omega l_j^\mu / c_0)。
-\]
 
-进一步地，将方程(S4)-(S7)代入方程(S3)，波函数方程可以以矩阵形式表示为：
-\[
-\omega^2 \xi = (H_0 + H_a(k)) \xi, 
-\]
-其中：
-\[
-H_0 =
-\begin{pmatrix}
-\omega_0 + \epsilon_1 & 0 \\
-0 & \omega_0 + \epsilon_2
-\end{pmatrix},
-\quad
-H_a(k) =
-\begin{pmatrix}
-\mu_1 + 2t_1\cos(ka) & \Delta_1 e^{ika} + \Delta_2 e^{-ika} \\
-\Delta_1 e^{-ika} + \Delta_2 e^{ika} & \mu_2 + 2t_2\cos(ka)
-\end{pmatrix}. 
-\]
-其中
-\[
-\epsilon_1 = \frac{cd^2 |\psi|^2}{2} \left[ 2\cot\left(\frac{\omega_0 l_1^t}{c_0}\right) + \cot\left(\frac{\omega_0 l_1^A}{c_0}\right) + \cot\left(\frac{\omega_0 l_2^A}{c_0}\right) \right],
-\]
-\[
-\epsilon_2 = \frac{cd^2 |\psi|^2}{2} \left[ 2\cot\left(\frac{\omega_0 l_2^t}{c_0}\right) + \cot\left(\frac{\omega_0 l_1^A}{c_0}\right) + \cot\left(\frac{\omega_0 l_2^A}{c_0}\right) \right],
-\]
-\[
-t_1 = -\frac{cd^2 |\psi|^2}{2} \csc\left(\frac{\omega_0 l_1^t}{c_0}\right), \quad
-t_2 = -\frac{cd^2 |\psi|^2}{2} \csc\left(\frac{\omega_0 l_2^t}{c_0}\right),
-\]
-\[
-\Delta_1 = -\frac{cd^2 |\psi|^2}{2} \csc\left(\frac{\omega_0 l_1^A}{c_0}\right), \quad
-\Delta_2 = -\frac{cd^2 |\psi|^2}{2} \csc\left(\frac{\omega_0 l_2^A}{c_0}\right),
-\]
-\[
-\mu_1 = \frac{i\rho c_0^2 d^2}{V Z_1^\mu}, \quad
-\mu_2 = \frac{i\rho c_0^2 d^2}{V Z_2^\mu}. 
-\]
-注意：一旦声学结构确定，所有这些参数都可以直接计算。需要特别指出的是，方程(S10)表明，所有由 \( P_z \) 模式描述的关键强度参数（\( t, \Delta, \mu \)）是解耦的，这与由声学系统谐振基频描述的跃迁不同，因此可以独立设计。
+考虑到实际声学系统的边界条件，文章进一步推导了边界对哈密顿量的影响。对于有限结构，硬边界和软边界条件分别影响哈密顿量的对角项。
 
-为了构造严格的声学Kitaev链，需要满足以下条件：
+- **硬边界条件**：对于硬边界，腔体的对角项变为：
+  \[
+  - (2w + v)
+  \]
+  
+- **软边界条件**：对于软边界，腔体的对角项变为：
+  \[
+  - (2w + 2v)
+  \]
+
+
+文章进一步通过计算系统的拓扑极化，来揭示哈密顿量与拓扑相之间的关系。极化 \( p \) 的计算通过下式给出：
 \[
-l_1^t = l_2^t + h， \quad t_1 = -t_2 = -t, \quad
-l_1^A = l_2^A + h，\quad \Delta_1 = -\Delta_2 = -\Delta,
+e^{-i \pi p} = \prod_{n \in \text{occ}} \theta_n(K) \theta_n(\Gamma)
 \]
-并且 \( Z_1^\mu = -Z_2^\mu \)，当 \( \mu_1 = -\mu_2 = -\mu \) 时，这些设置自然确保 \( \epsilon_1 = \epsilon_2 = \epsilon \)。因此，方程(S9)可以简化为：
-\[
-H_0 =
-\begin{pmatrix}
-\omega_0 + \epsilon & 0 \\
-0 & \omega_0 + \epsilon
-\end{pmatrix},
-\quad
-H_a(k) =
-\begin{pmatrix}
--\mu - 2t\cos(ka) & -2i\Delta\sin(ka) \\
-2i\Delta\sin(ka) & \mu + 2t\cos(ka)
-\end{pmatrix}. 
-\]
+其中，\( \theta_n(k) = \langle u_n(k) | R_3 | u_n(k) \rangle \) 是通过三重对称操作 \( R_3 \) 计算得到的本征值，\( n \) 是占据的能带，\( K \) 和 \( \Gamma \) 是高对称点。
+
+
+通过上述推导，文章揭示了软边界条件如何保留系统的拓扑特性，特别是角落态的存在，这些角落态与电子系统中的零能态相对应。
+
+总结而言，哈密顿量的推导通过声学电学类比、基尔霍夫电流定律以及周期性结构的布洛赫波函数方法，详细描述了声学拓扑晶体绝缘体的物理特性，同时揭示了边界条件对拓扑态的关键作用。
+
+
+\section{Kagome晶格体能带与拓扑相变}
+
+\section{Kagome晶格的边界态和角态}
+
+\section{边界条件对拓扑态的影响}

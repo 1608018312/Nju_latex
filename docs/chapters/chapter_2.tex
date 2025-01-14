@@ -1,65 +1,133 @@
-\chapter{声学边界的影响}
-\section{拓扑绝缘体}
+\chapter{声学拓扑晶体绝缘体的理论建模}
+\section{引言}
 
-\section{零阶模式的声学哈密顿量}
+\section{电声类比方法}
 
-在文章中，哈密顿量的推导较为详细，主要涉及以下几个步骤和公式：
+由于我们在用声学实现拓扑效应时，很多情况下是利用腔管共振结构实现声学结构和电子晶格结构的对应。而在声学研究中，电声类比是研究这类结构的一种常用方法。它适用于结构尺寸远小于波长的情况，是一种将集总参数的电路系统和声学系统进行类比分析的有效手段。它基于电学和声学在某些物理特性和数学描述上的相似性，建立起两者之间的对应关系，从而借助电学中成熟的理论和分析方法来研究声学问题。
+在这种类比中，电学中的电压、电流、电阻、电容、电感等概念分别与声学中的声压、体积速度、声阻、声容、声感等概念相对应。通过电声类比，我们可以将复杂的声学系统转化为等效的电学电路模型，利用电路分析的方法来求解声学系统的特性，因此本节首先介绍这种方法。
 
-文章中首先通过声学-电学类比来定义声学系统的 lumped 参数模型。在该模型中，腔体被表示为电容 \( C \)，波导被表示为电感 \( L_v \) 和 \( L_w \)。具体公式如下：
-\[
-C = \frac{V}{\rho c^2}
-\]
-\[
-L_v = \frac{\rho (l_v + 1.7r_v)}{\pi r_v^2}, \quad L_w = \frac{\rho (l_w + 1.7r_w)}{\pi r_w^2}
-\]
-其中，\( V \) 是腔体的体积，\( \rho \) 是空气的密度，\( c \) 是声速，\( r_v \) 和 \( r_w \) 分别是波导的半径，\( l_v \) 和 \( l_w \) 是它们的长度。
+\subsection{声容}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images/fig2-1.eps} 
+  \caption{声容示意图 }
+  \label{fig_2_1}
+\end{figure}
+
+对于一个壁面为刚性边界且带开口的腔体，当腔体里面的空气振动时，其声压和体积变化存在着某种关系。当开口较小且波长远大于结构尺寸时，这种关系往往是线性化的。我们可以把这样的结构称为声容，如图\ref{fig_2_1}。声容的推导从绝热近似的状态方程出发，假设声波传播过程为绝热过程，则
+\begin{equation} \label{eq2-1}
+  pV^\gamma = \text{常数},
+\end{equation}
+其中 \(p\) 为气体压力，\(V\) 为气体体积，\(\gamma = \frac{C_p}{C_v}\) 为绝热指数。对该公式取对数后对时间求导，得到
+\begin{equation} \label{eq2-2}
+  V^\gamma \frac{dp}{dt} + \gamma p V^{\gamma-1} \frac{dV}{dt} = 0,
+\end{equation}
+整理为
+\begin{equation} \label{eq2-3}
+  \frac{dp}{p} + \gamma \frac{dV}{V} = 0,
+\end{equation}
+假设声波的压力和体积变化为微小量，即
+\begin{equation} \label{eq2-4}
+  p = p_0 + \Delta p, \quad V = V_0 + \Delta V,
+\end{equation}
+代入后忽略高阶小量项，得
+\begin{equation} \label{eq2-5}
+  \frac{\Delta p}{p_0} = -\gamma \frac{\Delta V}{V_0},
+\end{equation}
+从中可得体积变化和压力变化之间的关系为
+\begin{equation} \label{eq2-6}
+  \Delta V = -\frac{V_0}{\gamma p_0} \Delta p
+\end{equation}
+声容 \(C_a\) 定义为单位压力变化引起的体积变化：
+\begin{equation} \label{eq2-7}
+  C_a = \frac{\Delta V}{\Delta p},
+\end{equation}
+将上述关系式代入后得到
+\begin{equation} \label{eq2-8}
+  C_a = \frac{V_0}{\gamma p_0},
+\end{equation}
+进一步结合声速的定义
+\begin{equation} \label{eq2-9}
+  c^2 = \frac{\gamma p_0}{\rho_0},
+\end{equation}
+将 \(\gamma p_0\) 替换为 \(\rho_0 c^2\)，最终得声容的表达式
+\begin{equation} \label{eq2-10}
+  C_a = \frac{V}{\rho_0 c^2},
+\end{equation}
+这一公式揭示了声容取决于腔体体积 \(V\)、介质密度 \(\rho_0\) 和声速 \(c\)，其中声容越大表示腔体对压力变化的响应越显著。
+
+\subsection{声质量}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images/fig2-2.eps} 
+  \caption{声质量示意图 }
+  \label{fig_2_2}
+\end{figure}
+
+当短管足够小，我们可以认为短管里的空气是整体振动的，此时可以把它视作质点，或者声质量，如图\ref{fig_2_2}。声质量的推导从牛顿第二定律开始。假设在声学系统中，颈管内的空气柱被视为振动的质点，其运动遵循牛顿第二定律：
+\begin{equation} \label{eq2-11}
+  F = M \frac{d^2 x}{dt^2},
+\end{equation}
+其中 \( F \) 为作用在空气柱上的力，\( M \) 为空气柱的质量，\( x \) 为空气柱的位移。对于声波传播，作用力由声压差产生，可以表示为：
+\begin{equation} \label{eq2-12}
+  F = \Delta p \cdot A,
+\end{equation}
+其中 \( \Delta p \) 为两端声压差，\( A \) 为颈管的截面积。空气柱的质量 \( M \) 表示为：
+\begin{equation} \label{eq2-13}
+  M = \rho_0 l_{\text{eff}} A,
+\end{equation}
+其中 \( \rho_0 \) 为空气的静态密度，\( l_{\text{eff}} \) 为颈管的有效长度，考虑了端点修正（通常为 \( l + 1.7r \)，其中 \( r \) 是颈管半径）。将 \( F \) 和 \( M \) 表达式代入牛顿第二定律，得到：
+\begin{equation} \label{eq2-14}
+  \Delta p \cdot A = \rho_0 l_{\text{eff}} A \frac{d^2 x}{dt^2},
+\end{equation}
+简化为：
+\begin{equation} \label{eq2-15}
+  \Delta p = \rho_0 l_{\text{eff}} \frac{d^2 x}{dt^2},
+\end{equation}
+由体积流量 \( U \) 的定义，\( U = A \frac{dx}{dt} \)，两次对时间求导后，得到空气柱的加速度与体积流量的关系：
+\begin{equation} \label{eq2-16}
+  \frac{d^2 x}{dt^2} = \frac{1}{A} \frac{dU}{dt},
+\end{equation}
+代入上述公式，得到：
+\begin{equation} \label{eq2-17}
+  \Delta p = \rho_0 l_{\text{eff}} \frac{1}{A} \frac{dU}{dt},
+\end{equation}
+整理后可得空气柱的声质量表达式：
+\begin{equation} \label{eq2-18}
+  L_a = \frac{\rho_0 l_{\text{eff}}}{A},
+\end{equation}
+这一公式表明，声质量 \( L_a \) 是由空气的静态密度 \(\rho_0\)、颈管的有效长度 \(l_{\text{eff}}\) 和截面积 \(A\) 决定的，其中 \( L_a \) 越大，表示空气柱对流量变化的惯性越强。
+
+\subsection{声阻}
+短管中的空气振动时，往往会收到壁面的阻力，线性化且集总参数的情况下，阻力的大小被视为和速度成正比。声阻的推导从牛顿第二定律和流体动力学的基本方程出发，描述了声波传播时介质中摩擦力引起的阻力。假设声波通过一个窄管时，声阻力来源于空气柱在运动过程中与管壁之间的黏性摩擦。牛顿第二定律为：
+\begin{equation} \label{eq2-19}
+  F = M \frac{d^2 x}{dt^2},
+\end{equation}
+其中 \( F \) 是作用在空气柱上的总力，\( M \) 是空气柱的质量，\( x \) 是空气柱的位移。在考虑摩擦力的情况下，总力 \( F \) 包含两个分量：由压力差引起的驱动力 \( F_p = \Delta p \cdot A \) 和与速度成正比的阻力 \( F_r = R_a \frac{dx}{dt} \)，其中 \( R_a \) 是声阻。由此，总力可以表示为：
+\begin{equation} \label{eq2-20}
+  \Delta p \cdot A - R_a \frac{dx}{dt} = M \frac{d^2 x}{dt^2},
+\end{equation}
+空气柱的质量 \( M \) 表达为：
+\begin{equation} \label{eq2-21}
+  M = \rho_0 l A,
+\end{equation}
+其中 \( \rho_0 \) 为空气密度，\( l \) 为空气柱的长度，\( A \) 为管道的截面积。将体积流量 \( U = A \frac{dx}{dt} \) 代入，声压差与流量的关系变为：
+\begin{equation} \label{eq2-22}
+  \Delta p = R_a \frac{U}{A} + \rho_0 l \frac{1}{A} \frac{dU}{dt},
+\end{equation}
+忽略惯性项（即空气柱的质量效应较小的情况下），可以得到声阻的定义：
+\begin{equation} \label{eq2-23}
+  R_a = \frac{\Delta p}{\frac{U}{A}},
+\end{equation}
+对于圆形管道，声阻可以进一步结合流体动力学中的黏性摩擦公式推导，其值为：
+\begin{equation} \label{eq2-24}
+  R_a = \frac{8 \mu l}{\pi r^4},
+\end{equation}
+其中 \( \mu \) 是空气的动态黏性系数，\( l \) 是管道的长度，\( r \) 是管道的半径。这一公式表明，声阻 \( R_a \) 与介质的黏性和管道的几何尺寸（长度和半径）直接相关，管道越窄，声阻越大，黏性越强，声阻也越大，从而对体积流量的变化产生显著的阻碍作用。
 
 
-通过应用基尔霍夫电流定律，文章得到了描述声学波动的方程。对于周期性结构，腔体的声压在每个晶格点处满足如下方程：
-\[
-- (2w + 2v) u_1^0 + w u_2^0 + w u_3^0 + v u_2^6 + v u_3^1 = \omega^2 u_1^0
-\]
-\[
-- (2w + 2v) u_2^0 + w u_3^0 + w u_1^0 + v u_3^2 + v u_1^3 = \omega^2 u_2^0
-\]
-\[
-- (2w + 2v) u_3^0 + w u_1^0 + w u_2^0 + v u_1^4 + v u_2^5 = \omega^2 u_3^0
-\]
-其中，\( u_n^m \) 表示第 \( n \) 个腔体在第 \( m \) 个晶格上的声压，\( w = -\frac{1}{L_v C} \)，\( v = -\frac{1}{L_w C} \) 是与腔体和波导的物理参数相关的系数，\( \omega \) 是角频率。
 
 
-通过上述方程，可以将哈密顿量表示为矩阵形式。在周期性结构下，哈密顿量 \( H_0(k) \) 以矩阵的形式表示为：
-\[
-H_0(k) =
-\begin{pmatrix}
--2w - 2v & w + v e^{i k \cdot (a_1 + a_2)} & w + v e^{i k \cdot a_1} \\
-w + v e^{-i k \cdot (a_1 + a_2)} & -2w - 2v & w + v e^{-i k \cdot a_2} \\
-w + v e^{-i k \cdot a_1} & w + v e^{i k \cdot a_2} & -2w - 2v
-\end{pmatrix}
-\]
-这里，\( k \) 是布里渊区内的波矢，\( a_1 \) 和 \( a_2 \) 是晶格常数。
 
-
-考虑到实际声学系统的边界条件，文章进一步推导了边界对哈密顿量的影响。对于有限结构，硬边界和软边界条件分别影响哈密顿量的对角项。
-
-- **硬边界条件**：对于硬边界，腔体的对角项变为：
-  \[
-  - (2w + v)
-  \]
-  
-- **软边界条件**：对于软边界，腔体的对角项变为：
-  \[
-  - (2w + 2v)
-  \]
-
-
-文章进一步通过计算系统的拓扑极化，来揭示哈密顿量与拓扑相之间的关系。极化 \( p \) 的计算通过下式给出：
-\[
-e^{-i \pi p} = \prod_{n \in \text{occ}} \theta_n(K) \theta_n(\Gamma)
-\]
-其中，\( \theta_n(k) = \langle u_n(k) | R_3 | u_n(k) \rangle \) 是通过三重对称操作 \( R_3 \) 计算得到的本征值，\( n \) 是占据的能带，\( K \) 和 \( \Gamma \) 是高对称点。
-
-
-通过上述推导，文章揭示了软边界条件如何保留系统的拓扑特性，特别是角落态的存在，这些角落态与电子系统中的零能态相对应。
-
-总结而言，哈密顿量的推导通过声学电学类比、基尔霍夫电流定律以及周期性结构的布洛赫波函数方法，详细描述了声学拓扑晶体绝缘体的物理特性，同时揭示了边界条件对拓扑态的关键作用。
