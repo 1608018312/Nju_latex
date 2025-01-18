@@ -150,114 +150,127 @@ w & w & 0 & -2w - 2v
     \label{fig_4_2}
   \end{figure}  
 
-图1(b)展示了对于参数$a_c = 30$mm、$l_w = 120$mm、$l_v = 20$mm、$r_w = 1.5$mm和$r_v = 4$mm的能带结构。这里，连接腔体的晶内和晶间电感分别定义为$L_w$和$L_v$，而腔体的电容为$C$，可根据结构的几何参数获得。$\omega$是布洛赫波函数的角频率。对于体晶格，动量空间中本征值问题可写为方程\ref{eq4-7}。在当前情况下，跳跃项和阻抗之间的严格对应关系可直接得到为$w = -1/L_wC$和$v = -1/L_vC$（参见上一章节）。这里$w = -2.51\times 10^5$Hz$^2$且$v = -8.17\times 10^6$Hz$^2$。
+图\ref{fig_4_2}(b)展示了对于参数$a_c = 30$mm、$l_w = 120$mm、$l_v = 20$mm、$r_w = 1.5$mm和$r_v = 4$mm的能带结构。这里，连接腔体的晶内和晶间电感分别定义为$L_w$和$L_v$，而腔体的电容为$C$，可根据结构的几何参数获得。$\omega$是布洛赫波函数的角频率。对于体晶格，动量空间中本征值问题可写为方程\ref{eq4-7}。在当前情况下，跳跃项和阻抗之间的严格对应关系可直接得到为$w = -1/L_wC$和$v = -1/L_vC$（参见上一章节）。这里$w = -2.51\times 10^5$Hz$^2$且$v = -8.17\times 10^6$Hz$^2$。
 
-由$C_4$对称性保护的第$n$个能带的高阶拓扑仍可由偶极矩$\mathcal{P}^{(n)} = (\mathcal{P}_x^{(n)}, \mathcal{P}_y^{(n)})$表征。此外，还可定义一个角诱导拓扑四极矩指数为[65]
-$$\mathcal{Q}_{xy} = \sum_{n = 1}^{\text{occ}} \mathcal{P}_x^{(n)} \mathcal{P}_y^{(n)}. \quad (4)$$
-对于两个占据能带的情况，当$v > w$时，$\mathcal{P}_x^{(1)} = \mathcal{P}_y^{(1)} = \mathcal{Q}_{xy} = 0.5$，这表明在具有开放边界的有限结构的边界和角落处预计会出现拓扑边缘态和角落态，如图\ref{fig_4_2}(c)-(e)所示。
+由$C_4$对称性保护的第$n$个能带的高阶拓扑仍可由偶极矩$\mathcal{P}^{(n)} = (\mathcal{P}_x^{(n)}, \mathcal{P}_y^{(n)})$表征。此外，还可定义一个角诱导拓扑四极矩指数为\cite{C45-3}
+\begin{equation}
+    \mathcal{Q}_{xy} = \sum_{n = 1}^{\text{occ}} \mathcal{P}_x^{(n)} \mathcal{P}_y^{(n)}
+    \label{eq4-14}
+\end{equation}
+对于此处有两个占据能带的情况，当$v > w$时，$\mathcal{P}_x^{(1)} = \mathcal{P}_y^{(1)} = \mathcal{Q}_{xy} = 0.5$，这表明在具有开放边界的有限结构的边界和角落处预计会出现拓扑边缘态和角落态，如图\ref{fig_4_2}(c)-(e)所示。
 
 理论模型的一个内在考量是，即使在开放边界条件下，手性对称性也能完美保持，因此边界局域化模式预计会被固定到零能量（能隙中间）；即使在许多实验研究中，在位势也总是被视为独立的。然而，如方程\ref{eq4-12}和\ref{eq4-13}所示，在位势与实际物理系统中的跳跃项强耦合。因此，对于有限结构，如果在边界晶格中没有严格的补偿，手性对称性的破坏将不可避免地导致在位势的偏移。例如，对于具有绝对硬壁边界条件的$C_4$对称声学系统或具有完美磁导体类似边界条件的光学系统，表面阻抗为$Z = \infty$，这使得边界晶格中的这些项为$\varepsilon^{\text{edge}} = -2w - v$，而角落晶格中原子的在位势为$\varepsilon^{\text{corner}} = -2w$。更重要的是，在相同条件下，最外层管道的长度直接决定它们的阻抗。从这个角度来看，我们可以改变相应位置管道的长度来改变位能，进而影响拓扑态的性质，例如拓扑边界态的传播速度或者是拓扑角态的频率，这将在下一节中详述。
 
 \section{经典波系统中表面阻抗对拓扑态的影响}
+
+在电子系统中，我们往往把真空看作是一种平庸介质，对非平庸的拓扑绝缘体，当存在某种空间对称性时其拓扑边界态出现在其表面，并且由于对称性保护拓扑角态出现在“零能”位置。但是，从上一小节可以看到，对实际的声学系统而言，表面阻抗的存在会影响非平庸结构的边界。虽然可观测的拓扑态通常被视作源自体拓扑，且被认为对于来自内部无序或平凡环境的干扰具备鲁棒性，然而在实际的物理系统里，若缺乏严格的边界补偿，手性对称性在本质上是被破坏的，这必然会致使边界在位势发生偏移，进而对拓扑态的出现产生影响。在本部分内容中，基于声学系统，我们深入且细致地分析了拓扑态存在的条件，并给出了这些态随着由表面阻抗表征的不同补偿所产生的能量偏移情况。 
+
 \subsection{具有附加表面阻抗的一维SSH模型}
 
-在一般考虑中，研究紧束缚模型时总是忽略系统表面的对称性破缺，并且可观测的拓扑态总是被认为源于体拓扑，并且对来自内部无序或平凡环境的干扰具有鲁棒性。然而，在实际物理系统中，如果没有严格的边界补偿，手性对称性本质上是破缺的，这不可避免地导致边界在位势的偏移，进而影响拓扑态的出现。在这部分，基于声学系统，我们详细分析拓扑态存在的条件，并给出这些态随由表面阻抗表征的不同补偿的能量偏移。
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{images/fig4-3.eps} 
+    \caption{(a)具有N个晶胞的一维SSH模型的示意图。（b）等效电路图。}
+    \label{fig_4_3}
+  \end{figure}  
 
-在此，不失一般性，我们从具有\(N\)个单元的常规一维厄米SSH模型开始，如图S2(a)所示。我们分别将单元内和单元间阻抗定义为\(Z_{aa}\)和\(Z_{ab}\)，原子的本征阻抗为\(Z_{c}\)。对于体中的第\(n\)个单元，原子\(a\)和\(b\)位置处的波函数可写为
+在此，不失一般性，我们从具有\(N\)个单元的常规一维SSH模型开始，如图\ref{fig_4_3}(a)所示。我们分别将单元内和单元间阻抗定义为\(Z_{aa}\)和\(Z_{ab}\)，原子的本征阻抗为\(Z_{c}\)。对于体中的第\(n\)个单元，原子\(a\)和\(b\)位置处的波函数可写为
+\begin{equation}\label{eq4-15}
+    \begin{split}
+    -\frac{\psi_{n,a}}{Z_{c}} &= \frac{\psi_{n,a} - \psi_{n,b}}{Z_{w}} + \frac{\psi_{n,a} - \psi_{n - 1,b}}{Z_{v}},\\
+    -\frac{\psi_{n,b}}{Z_{c}} &= \frac{\psi_{n,b} - \psi_{n,a}}{Z_{w}} + \frac{\psi_{n,b} - \psi_{n + 1,a}}{Z_{v}}.
+    \end{split}
+\end{equation}
+因此，经典波系统中的单元内和单元间跳跃项可分别定义为\(w = \epsilon Z_{c} / Z_{aa}\)和\(v = \epsilon Z_{c} / Z_{ab}\)，其中\(\epsilon\)与波函数\([\psi_{n,a},\psi_{n,b}]^T\)的频率\(\omega\)有关。把式\ref{eq4-15}重新整理，可重写为
+\begin{equation}\label{eq4-16}
+    \begin{split}
+    (e + w + v)\psi_{n,a} &= w\psi_{n,b} + w\psi_{n - 1,b},\\
+    (e + w + v)\psi_{n,b} &= w\psi_{n,a} + w\psi_{n + 1,a}.
+    \end{split}
+\end{equation}
+对于边界单元，即第一个单元和第\(N\)个单元，我们在末端的原子上施加一个额外阻抗\(Z_{add}=Z_{v}+Z\)，这在实际声学结构中非常常见，因为实际结构边界处的表面阻抗总是需要仔细考量的。相应单元中的波函数则可表示为
+\begin{equation}\label{eq4-17}
+    \begin{split}
+    (\epsilon + w + \Delta_0)\psi_{1,a} &= w\psi_{1,b},\\
+    (\epsilon + w + \Delta_0)\psi_{N,b} &= w\psi_{N,a}.
+    \end{split}
+    \end{equation}
+其中\(\Delta_0 = \epsilon Z_{c} / Z_{add} = vZ_{v} / (Z_{v} + Z)\)。值得注意的是，在实际物理系统中，原子可由纯电容\(C\)表征，原子间的相互作用可由纯电感\(L_{\alpha}(\alpha = w,v)\)表征。因此，我们得到关系\(Z_{c} = 1 / i\omega C\)和\(Z_{\alpha} = i\omega L_{\alpha}\)。此外，从\(\Delta_0\)的定义可以容易地得出\(Z = i\omega L\)应归因于纯电感[如图\ref{fig_4_3}(b)所示]。这是由于腔管结构的表面往往是控制导管来控制表面阻抗，否则实际结构可能无法和电子系统中线性的本征值问题很好地对应上，而这在本工作中未被考虑。结果，式\ref{eq4-17}最终可重写为
+\begin{equation}\label{eq4-18}
+    \begin{split}
+    (\epsilon + w + v + \Delta)\psi_{1,a} &= w\psi_{1,b},\\
+    (\epsilon + w + v + \Delta)\psi_{N,b} &= w\psi_{N,a}.
+    \end{split}
+\end{equation}
+值得一提的是，由于在实际结构中\(L \in [0,\infty]\)，我们得到\(\Delta \in [-v,0]\)。
 
-\(-\frac{\psi_{n,a}}{Z_{c}}=\frac{\psi_{n,a}-\psi_{n,b}}{Z_{aa}}+\frac{\psi_{n,a}-\psi_{n-1,b}}{Z_{ab}}\)，
+\subsection{平庸体态和拓扑态的解析解}
 
-\(-\frac{\psi_{n,b}}{Z_{c}}=\frac{\psi_{n,b}-\psi_{n,a}}{Z_{aa}}+\frac{\psi_{n,b}-\psi_{n+1,a}}{Z_{ab}}\)。
-
-因此，经典波系统中的单元内和单元间跳跃项可分别定义为\(w = \epsilon Z_{c} / Z_{aa}\)和\(v = \epsilon Z_{c} / Z_{ab}\)，其中\(\epsilon\)与波函数\([\psi_{n,a},\psi_{n,b}]^T\)的频率\(\omega\)有关。结果，式S12可重写为
-
-\((\epsilon + w + v)\psi_{n,a} = w\psi_{n,b} + w\psi_{n - 1,b}\)，
-
-\((\epsilon + w + v)\psi_{n,b} = w\psi_{n,a} + w\psi_{n + 1,a}\)。
-
-对于边界单元，即第一个单元和第\(N\)个单元，我们有意在末端的原子上施加一个额外阻抗\(Z_{add}=Z_{v}+Z\)。相应单元中的波函数则可表示为
-
-\((\epsilon + w + \Delta_0)\psi_{1,a} = w\psi_{1,b}\)，
-
-\((\epsilon + w + \Delta_0)\psi_{N,b} = w\psi_{N,a}\)，
-
-其中\(\Delta_0 = \epsilon Z_{c} / Z_{add} = vZ_{v} / (Z_{v} + Z)\)。值得注意的是，在实际物理系统中，原子可由纯电容\(C\)表征，原子间的相互作用可由纯电感\(L_{\alpha}(\alpha = w,v)\)表征。因此，我们得到关系\(Z_{c} = 1 / i\omega C\)和\(Z_{\alpha} = i\omega L_{\alpha}\)。此外，从\(\Delta_0\)的定义可以容易地得出\(Z = i\omega L\)应归因于纯电感[如图S2(b)所示]，否则会导致非线性效应，而这在本工作中未被考虑。结果，式S14最终可重写为
-
-\((\epsilon + w + v + \Delta)\psi_{1,a} = w\psi_{1,b}\)，
-
-\((\epsilon + w + v + \Delta)\psi_{N,b} = w\psi_{N,a}\)。
-
-关键在于，由于\(L \in [0,\infty]\)这一自然事实，我们得到\(\Delta \in [-v,0]\)。
-
-
-\subsection{平凡体态和拓扑态的解析解}
-
-实际上，系统的哈密顿量可直接从式S12和S13导出。然而，这种方法难以区分平凡体态和拓扑态。在此，我们提出一种直接方法，通过获得解析解来讨论拓扑态的存在。我们使用第\(n\)个单元中波函数的通解为[1]
-
-\(\psi_{n,a}=A_{1}\gamma^{n}+A_{2}\gamma^{-n}\)，
-
-\(\psi_{n,b}=B_{1}\gamma^{n}+B_{2}\gamma^{-n}\)，
-
-其中\(\{A_{1},A_{2},B_{1},B_{2}\}\)是平面波的系数。因此，\(\gamma=\xi e^{i\theta}(\theta\in[-\pi,\pi])\)表示体中具有周期性场分布的平凡态，而\(\gamma\)为实数（\(\gamma\neq\pm1\)）表示从边界向体中指数衰减的拓扑态。我们将通解代入式S13，得到
-
-\(\mathcal{P}_{1}\gamma^{n}-\mathcal{P}_{2}\gamma^{-n}=0\)，
-
-\(\mathcal{P}_{3}\gamma^{n}-\mathcal{P}_{4}\gamma^{-n}=0\)，
-
+实际上，系统的哈密顿量可直接从式\ref{eq4-15}和\ref{eq4-16}导出。然而，这种方法难以区分平庸体态和拓扑态。在此，我们使用一种直接方法，通过获得解析解来讨论拓扑态的存在。我们使用第\(n\)个单元中波函数的通解为\cite{i5}
+\begin{equation}\label{eq4-19}
+    \begin{split}
+        \psi_{n,a}=A_{1}\gamma^{n}+A_{2}\gamma^{-n},\\
+        \psi_{n,b}=B_{1}\gamma^{n}+B_{2}\gamma^{-n},
+    \end{split}
+\end{equation}
+其中\(\{A_{1},A_{2},B_{1},B_{2}\}\)是正向和反向平面波的幅值系数。因此，若\(\gamma=\xi e^{i\theta}(\theta\in[-\pi,\pi])\)为虚数则表示体中具有周期性场分布的平凡态，而\(\gamma\)为实数（\(\gamma\neq\pm1\)）表示从边界向体中指数衰减的拓扑态。我们将通解\ref{eq4-19}代入式\ref{eq4-16}，得到
+\begin{equation}\label{eq4-20}
+    \begin{split}
+        {P}_{1}\gamma^{n}-\mathcal{P}_{2}\gamma^{-n}=0,\\
+        {P}_{3}\gamma^{n}-\mathcal{P}_{4}\gamma^{-n}=0,
+    \end{split}
+\end{equation}
 其中
-
-\(\mathcal{P}_{1}=\epsilon'A_{1}-wB_{1}-vB_{1}\gamma^{-1}\)，
-
-\(\mathcal{P}_{2}=\epsilon'A_{2}-wB_{2}-vB_{2}\gamma\)，
-
-\(\mathcal{P}_{3}=\epsilon'B_{1}-wA_{1}-vA_{1}\gamma^{-1}\)，
-
-\(\mathcal{P}_{4}=\epsilon'B_{2}-wA_{2}-vA_{2}\gamma^{-1}\)，
-
-其中\(\epsilon' = w + v + \epsilon\)。然后我们可以得到\(\mathcal{P}_{i}=0\ (i = 1,2,3,4)\)的关系，以满足每个体单元中的波函数。
-
-结果，我们得到
-
-\(\epsilon'\begin{bmatrix}B_{1}\\A_{1}\\A_{2}\\B_{2}\end{bmatrix}=\begin{bmatrix}\mathcal{D}_{2\times2}&\mathcal{O}\\\mathcal{O}&\mathcal{D}_{2\times2}\end{bmatrix}\begin{bmatrix}B_{1}\\A_{1}\\A_{2}\\B_{2}\end{bmatrix}\)，
-
+\begin{equation}\label{eq4-21}
+    \begin{split}
+        {P}_{1}=\epsilon'A_{1}-wB_{1}-vB_{1}\gamma^{-1},\\
+        {P}_{2}=\epsilon'A_{2}-wB_{2}-vB_{2}\gamma,\\
+        {P}_{3}=\epsilon'B_{1}-wA_{1}-vA_{1}\gamma^{-1},\\
+        {P}_{4}=\epsilon'B_{2}-wA_{2}-vA_{2}\gamma^{-1},
+    \end{split}
+\end{equation}
+其中\(\epsilon' = w + v + \epsilon\)。然后我们可以得到\({P}_{i}=0\ (i = 1,2,3,4)\)的关系，以满足每个体单元中的波函数。结果，我们得到
+\begin{equation}\label{eq4-22}
+    \epsilon'\begin{bmatrix}B_{1}\\A_{1}\\A_{2}\\B_{2}\end{bmatrix}=\begin{bmatrix}\mathcal{D}_{2\times2}&\mathcal{O}\\\mathcal{O}&\mathcal{D}_{2\times2}\end{bmatrix}\begin{bmatrix}B_{1}\\A_{1}\\A_{2}\\B_{2}\end{bmatrix}
+\end{equation}
 其中
-
-\(\mathcal{D}_{2\times2}=\begin{bmatrix}0&w + v\gamma\\w + v\gamma^{-1}&0\end{bmatrix}\)。
-
-对于矩阵\(\mathcal{D}_{2\times2}\)，必定存在两个不相等的非零特征值，即
-
-\(\epsilon_{1}' = -\sqrt{(w + v\gamma)(w + v\gamma^{-1})}\)
-
-\(\epsilon_{2}' = -\epsilon_{1}'\)
-
-因此，对于式S19，应当有两对双重特征值，分别对应两对独立的特征向量。然后我们将与\(\mathcal{D}_{2\times2}\)的特征值\(\epsilon'\)对应的特征向量定义为\(\mathbf{u} = [u_{1}\ u_{2}]^{T}\)，式S19的特征向量空间最终得到
-
-\(\begin{bmatrix}B_{1}\\A_{1}\\A_{2}\\B_{2}\end{bmatrix}=\alpha\begin{bmatrix}u_{1}\\u_{2}\\0\\0\end{bmatrix}+\beta\begin{bmatrix}0\\0\\u_{1}\\u_{2}\end{bmatrix}=\begin{bmatrix}\alpha u_{1}\\\alpha u_{2}\\\beta u_{1}\\\beta u_{2}\end{bmatrix}\)，
-
+\begin{equation}\label{eq4-23}
+    \mathcal{D}_{2\times2}=\begin{bmatrix}0&w + v\gamma\\w + v\gamma^{-1}&0\end{bmatrix},
+\end{equation}
+对于矩阵\(\mathcal{D}_{2\times2}\)，存在两个不相等的非零特征值，即
+\begin{equation}\label{eq4-24}
+    \begin{split}
+        \epsilon_{1}' = -\sqrt{(w + v\gamma)(w + v\gamma^{-1})},\\
+        \epsilon_{2}' = -\epsilon_{1}'
+    \end{split}
+\end{equation}
+因此，对于式\ref{eq4-22}，应当有两对双重特征值，分别对应两对独立的特征向量。然后我们将与\(\mathcal{D}_{2\times2}\)的特征值\(\epsilon'\)对应的特征向量定义为\(\mathbf{u} = [u_{1}\ u_{2}]^{T}\)，式\ref{eq4-22}的特征向量空间最终得到
+\begin{equation}\label{eq4-25}
+    \begin{bmatrix}B_{1}\\A_{1}\\A_{2}\\B_{2}\end{bmatrix}=\alpha\begin{bmatrix}u_{1}\\u_{2}\\0\\0\end{bmatrix}+\beta\begin{bmatrix}0\\0\\u_{1}\\u_{2}\end{bmatrix}=\begin{bmatrix}\alpha u_{1}\\\alpha u_{2}\\\beta u_{1}\\\beta u_{2}\end{bmatrix},
+\end{equation}
 其中\(\alpha\)和\(\beta\)是任意系数。因此，式S18可重写为
-
-\(\psi_{n,a}=\alpha u_{2}\gamma^{n}+\beta u_{1}\gamma^{-n}\)，
-
-\(\psi_{n,b}=\alpha u_{1}\gamma^{n}+\beta u_{2}\gamma^{-n}\)。
-
-为了方便讨论，这里特征向量的基选择为\(u_{1}=w + v\gamma\)和\(u_{2}=\epsilon'\)。
-
-将式S23代入式S17，我们得到
-
-\(\mathcal{F}\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}0\\0\end{bmatrix}\)，
-
+\begin{equation}\label{eq4-26}
+    \begin{split}
+        \psi_{n,a}=\alpha u_{2}\gamma^{n}+\beta u_{1}\gamma^{-n},\\
+        \psi_{n,b}=\alpha u_{1}\gamma^{n}+\beta u_{2}\gamma^{-n},
+    \end{split}
+\end{equation}
+为了方便讨论，这里特征向量的基选择为\(u_{1}=w + v\gamma\)和\(u_{2}=\epsilon'\)。将式\ref{eq4-26}代入式\ref{eq4-20}，我们得到
+\begin{equation}\label{eq4-27}
+    \mathcal{F}\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}0\\0\end{bmatrix},
+\end{equation}
 其中
-
-\(\mathcal{F}=\begin{bmatrix}\{(\epsilon'+\Delta)u_{2}-wu_{1}\}\gamma&\{(\epsilon'+\Delta)u_{1}-wu_{2}\}\gamma^{-1}\\\{(\epsilon'+\Delta)u_{1}-wu_{2}\}\gamma^{N}&\{(\epsilon'+\Delta)u_{2}-wu_{1}\}\gamma^{-N}\end{bmatrix}\)。
-
-系数的非平凡解要求\(\mathrm{det}(\mathcal{F}) = 0\)，得到
-
-\(w^{2}F(\gamma)=\{(\epsilon'+\Delta)u_{2}-wu_{1}\}^{2}\gamma^{-N + 1}-\{(\epsilon'+\Delta)u_{1}-wu_{2}\}^{2}\gamma^{N - 1}=0\)。
-
-将式S21代入式S26，\(\gamma\)可以很好地确定，并且由于\(F(\gamma)=F(-\gamma)\)的性质，很明显该方程有\(N\)对相反的根。同时，系数\([\alpha\ \beta]^{T}\)可定义为
-
-\(\begin{bmatrix}\alpha\\\beta\end{bmatrix}=\begin{bmatrix}-\{(\epsilon'+\Delta)u_{2}+wu_{1}\}\gamma^{-1}\\\{(\epsilon'+\Delta)u_{1}-wu_{2}\}\gamma\end{bmatrix}\)。
-
+\begin{equation}\label{eq4-28}
+    \mathcal{F}=\begin{bmatrix}\{(\epsilon'+\Delta)u_{2}-wu_{1}\}\gamma&\{(\epsilon'+\Delta)u_{1}-wu_{2}\}\gamma^{-1}\\\{(\epsilon'+\Delta)u_{1}-wu_{2}\}\gamma^{N}&\{(\epsilon'+\Delta)u_{2}-wu_{1}\}\gamma^{-N}\end{bmatrix},
+\end{equation}
+方程存在的非平凡解要求\(\mathrm{det}(\mathcal{F}) = 0\)，所以得到
+\begin{equation}\label{eq4-29}
+    w^{2}F(\gamma)=\{(\epsilon'+\Delta)u_{2}-wu_{1}\}^{2}\gamma^{-N + 1}-\{(\epsilon'+\Delta)u_{1}-wu_{2}\}^{2}\gamma^{N - 1}=0,
+\end{equation}
+将式\ref{eq4-24}代入式S\ref{eq4-29}，\(\gamma\)可以很好地确定，并且由于\(F(\gamma)=F(-\gamma)\)的性质，很明显该方程有\(N\)对相反的根。同时，系数\([\alpha\ \beta]^{T}\)可定义为
+\begin{equation}\label{eq4-30}
+    \begin{bmatrix}\alpha\\\beta\end{bmatrix}=\begin{bmatrix}-\{(\epsilon'+\Delta)u_{2}+wu_{1}\}\gamma^{-1}\\\{(\epsilon'+\Delta)u_{1}-wu_{2}\}\gamma\end{bmatrix},
+\end{equation}
 结果，所有系数\(\{\alpha,\beta,\gamma\}\)都可以在\(\Delta\)定义的情况下直接得到。
 
 \subsection{经典波系统中的约束条件}
