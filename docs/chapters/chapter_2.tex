@@ -61,7 +61,7 @@
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.5\textwidth]{images/fig2-2.eps} 
+  \includegraphics[width=1\textwidth]{images/fig2-2.eps} 
   \caption{声质量示意图 }
   \label{fig_2_2}
 \end{figure}
@@ -96,9 +96,9 @@
 \end{equation}
 整理后可得空气柱的声质量表达式：
 \begin{equation} \label{eq2-18}
-  L_a = \frac{\rho_0 l_{\text{eff}}}{A},
+  M_a = \frac{\rho_0 l_{\text{eff}}}{A},
 \end{equation}
-这一公式表明，声质量 \( L_a \) 是由空气的静态密度 \(\rho_0\)、颈管的有效长度 \(l_{\text{eff}}\) 和截面积 \(A\) 决定的，其中 \( L_a \) 越大，表示空气柱对流量变化的惯性越强。
+这一公式表明，声质量 \( M_a \) 是由空气的静态密度 \(\rho_0\)、颈管的有效长度 \(l_{\text{eff}}\) 和截面积 \(A\) 决定的，其中 \( L_a \) 越大，表示空气柱对流量变化的惯性越强。
 
 \subsection{声阻}
 短管中的空气振动时，往往会收到壁面的阻力，线性化且集总参数的情况下，阻力的大小被视为和速度成正比。声阻的推导从牛顿第二定律和流体动力学的基本方程出发，描述了声波传播时介质中摩擦力引起的阻力。假设声波通过一个窄管时，声阻力来源于空气柱在运动过程中与管壁之间的黏性摩擦。牛顿第二定律为：
@@ -127,11 +127,100 @@
 \end{equation}
 其中 \( \mu \) 是空气的动态黏性系数，\( l \) 是管道的长度，\( r \) 是管道的半径。这一公式表明，声阻 \( R_a \) 与介质的黏性和管道的几何尺寸（长度和半径）直接相关，管道越窄，声阻越大，黏性越强，声阻也越大，从而对体积流量的变化产生显著的阻碍作用。
 
-\subsection{电路结构（未完成）}
+\subsection{等效电路方法}
 
- \section{腔体简正模式和腔体间的耦合}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=1\textwidth]{images/fig2-3.eps} 
+  \caption{亥姆霍兹共鸣器及其等效电路}
+  \label{fig_2_3}
+\end{figure}
+
+在定义了声顺，声阻，声质量之后，我们这里探讨它们的连接和等效电路方法。如图\ref{fig_2_3}是一种由短管和刚性壁腔体构成的声学结构。该结构具体由截面积为$S$（半径为$a$）、长度为$l_0$的短管，与容积为$V_0$的刚性壁腔体联通而成，短管和腔体内部均充满密度为$\rho_0$的流体。对于所涉声波，设其波长为$\lambda$，且满足$\lambda \gg a, l_0, \sqrt[3]{V_0}$ 以及 $V_0 \gg Sl_0$ 的假设条件。在这种设定下，短管内的流体如同活塞般作整体运动，其质量$M_m = \rho_0Sl_0$ ，考虑到短管两端的声辐射效应，等效管长变为$l = l_0 + \Delta l = l_0 + 2\times\frac{8a}{3\pi} = l_0 + 1.7a$ 。此外，由于短管内空气高速运动，会受到管壁摩擦力，产生力阻$R_m$。在该声学结构中，管口会受到外界激励声压$p = P - P_0$的作用，并考虑到空气柱可能存在的力阻，在同时引入声质量$M_a$、声阻$R_a$和声顺$C_a$后，其关于声压$p$和体积速度$U$的 振动方程为
+\begin{equation}\label{eq2-25}
+  M_a\frac{dU}{dt} + R_aU + \frac{1}{C_a}\int Udt = p,
+\end{equation}
+
+方程\ref{eq2-25}与RLC电路的控制方程十分相似，并且在阻抗型类比中，电学元件和声学元件可以一一对应：
+\begin{equation}\label{eq2-26}
+  L_e\frac{dI}{dt} + R_eI + \frac{1}{C_e}\int Idt = E,
+\end{equation}
+对比方程\ref{eq2-25}和方程\ref{eq2-26}，在阻抗型声电类比关系里，声压$p$对应电压$E$，体速度$U$对应电流$I$，声质量$M_a$对应电感$L_e$，声顺$C_a$对应电容$C_e$，声阻$R_a$对应电阻$R_e$。元件两端的压强差$p = P - P_0$，对应于大气压强$P_0$的端点相当于“接地”，如图\ref{fig_2_3}所示。这种方法可以扩展到更复杂的声学结构，前提条件是腔管结构尺寸和波长满足一定关系。
+
+ \section{腔体简正模式和格林函数}
  在上一小节我们介绍了声-电类比方法和等效电路模型。一方面，声波在腔管中作为一个分布变化的波函数，我可以用一些集总参数的电路元件来模拟其中的行为，需要有很多的限制条件。例如，我们必须在一个波长远大于尺寸的条件下对系统建模，这时腔体内声压随空间分布的函数近似为一个不变的常数，此后我们才可以用常数声压定义声容。而另一方面，在声学设计的时候，我们往往采用一些规则结构，例如长方体、圆柱体等。这使得其简正模式和频率可以非常容易地确定。因此，在本节中，我们将介绍腔体的简正模式和格林函数的关系，并以此研究腔体的耦合。
 
-\subsection{简正模式}
+\subsection{刚性腔的简正模式}
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images/fig2-4.eps} 
+  \caption{腔体及其法向边界$\mathbf{n}$、内壁法向$\mathbf{n_s}$}
+  \label{fig_2_4}
+\end{figure}
 
+简正模式理论是求解有限空间声场的基本方法。其物理意义明确，每个简正模式对应一个驻波模式，简正频率即腔体共振频率，可在实验中测量。声源于腔内激发多种简正模式，腔内总声场为各激发模式的叠加。 在这里，我们探讨刚性壁面腔体的简正模式和展开。如图\ref{fig_2_4}所示，设封闭区域$V$的边界为刚性边界$S$，边界的法向为$n$（与内壁的法向$n_S$相反）。在频率域中，声波方程和边界条件需满足：
+\begin{equation}\label{eq2-27}
+  \begin{split}
+  \nabla^{2}p(\mathbf{r},\omega)+k_{0}^{2}p(\mathbf{r},\omega)&=-\mathfrak{I}(\mathbf{r},\omega)\quad(k_{0}=\omega/c_{0})\\
+  \mathbf{n}\cdot\nabla p(\mathbf{r},\omega)&\equiv\left.\frac{\partial p(\mathbf{r},\omega)}{\partial n}\right|_{S}=0
+  \end{split}
+\end{equation}
+
+其中，$\mathfrak{I}(\mathbf{r},\omega)$是体源分布。为了求声场分布，我们首先求$V$内的简正模式$\psi_{\lambda}(\mathbf{r},\omega_{\lambda})$和简正频率$\omega_{\lambda}$，它们是下列齐次问题的非零解：
+
+\begin{equation}\label{eq2-28}
+  \begin{split}
+  \nabla^{2}\psi_{\lambda}(\mathbf{r},\omega_{\lambda})+k_{\lambda}^{2}\psi_{\lambda}(\mathbf{r},\omega_{\lambda})&=0\quad(k_{\lambda}=\omega_{\lambda}/c_{0})\\
+  \left.\frac{\partial\psi_{\lambda}(\mathbf{r},\omega_{\lambda})}{\partial n}\right|_{S}&=0
+  \end{split}
+  \end{equation}
+
+三维拉普拉斯算子$-\nabla^{2}$在刚性边界条件下是厄米特对称算子，即简正模式$\psi_{\lambda}(\mathbf{r},\omega_{\lambda})$和简正频率$\omega_{\lambda}$同样具有三个基本性质：1. 简正频率$\omega_{\lambda}$是实数；2.简正模式$\psi_{\lambda}(\mathbf{r},\omega_{\lambda})$相互正交；3.简正系
+\begin{equation}\label{eq2-29}
+  \{\psi_{\lambda}(\mathbf{r},\omega_{\lambda}),\lambda = 0,1,2,\cdots\}
+\end{equation}
+构成完备系，即定义在$V$上的平方可积函数$p(\mathbf{r},\omega)$可作广义傅里叶级数展开：
+\begin{equation}\label{eq2-30}
+  p(\mathbf{r},\omega)\cong\sum_{\lambda = 0}^{\infty}a_{\lambda}\psi_{\lambda}(\mathbf{r},\omega_{\lambda})
+\end{equation}
+其中，展开系数为
+\begin{equation}\label{eq2-31}
+  a_{\lambda}=\int_{V}p(\mathbf{r},\omega)\psi_{\lambda}^{*}(\mathbf{r},\omega_{\lambda})\mathrm{d}^{3}\mathbf{r}
+\end{equation}
+
+\subsection{频域格林函数}
+对于声场激发问题，将方程\ref{eq2-30}代入\ref{eq2-27}可得：
+\begin{equation}\label{eq2-32}
+  \sum_{\lambda = 0}^{\infty}a_{\lambda}[\nabla^{2}\psi_{\lambda}(\mathbf{r},\omega_{\lambda}) + k_{0}^{2}\psi_{\lambda}(\mathbf{r},\omega_{\lambda})]=-\mathfrak{I}(\mathbf{r},\omega)
+\end{equation}
+由方程\ref{eq2-28}可得：
+\begin{equation}\label{eq2-33}
+  \sum_{\lambda = 0}^{\infty}a_{\lambda}(k_{0}^{2}-k_{\lambda}^{2})\psi_{\lambda}(\mathbf{r},\omega_{\lambda})=-\mathfrak{I}(\mathbf{r},\omega)
+\end{equation}
+利用$\psi_{\lambda}(\mathbf{r},\omega_{\lambda})$的正交归一性，有：
+\begin{equation}\label{eq2-34}
+  a_{\lambda}=\frac{1}{k_{\lambda}^{2}-k_{0}^{2}}\int_{V}\mathfrak{I}(\mathbf{r},\omega)\psi_{\lambda}^{*}(\mathbf{r},\omega_{\lambda})\mathrm{d}^{3}\mathbf{r}
+\end{equation}
+将上式代入方程\ref{eq2-30}
+\begin{equation}
+\begin{split}
+  p(\mathbf{r},\omega)&=\int_{V}\mathfrak{I}(\mathbf{r}',\omega)\left[\sum_{\lambda = 0}^{\infty}\frac{1}{k_{\lambda}^{2}-k_{0}^{2}}\psi_{\lambda}^{*}(\mathbf{r}',\omega_{\lambda})\psi_{\lambda}(\mathbf{r},\omega_{\lambda})\right]\mathrm{d}^{3}\mathbf{r}'\\
+  &\equiv\int_{V}G_{0}(\mathbf{r},\mathbf{r}',\omega)\mathfrak{I}(\mathbf{r}',\omega)\mathrm{d}^{3}\mathbf{r}'
+\end{split}
+\end{equation}
+其中，$G_0(\mathbf{r}, \mathbf{r}', \omega)$定义为：
+\begin{equation}
+  G_0(\mathbf{r}, \mathbf{r}', \omega) \equiv \sum_{\lambda = 0}^{\infty} \frac{1}{k_{\lambda}^{2} - k_{0}^{2}} \psi_{\lambda}^{*}(\mathbf{r}', \omega_{\lambda}) \psi_{\lambda}(\mathbf{r}, \omega_{\lambda})
+\end{equation}
+显然，当$\mathfrak{I}(\mathbf{r}, \omega) = \delta(\mathbf{r}, \mathbf{r}')$时，方程：
+\begin{equation}\label{eq2-27}
+  \begin{split}
+  \nabla^{2}G_{0}(\mathbf{r},\mathbf{r}',\omega)+k_{0}^{2}G_{0}(\mathbf{r},\mathbf{r}',\omega)&=-\delta(\mathbf{r},\mathbf{r}')\\
+  \left.\frac{\partial G_{0}(\mathbf{r},\mathbf{r}',\omega)}{\partial n}\right|_{S}&=0
+  \end{split}
+\end{equation}
+的解就是$G_0(\mathbf{r}, \mathbf{r}', \omega)$。因此，方程\ref{eq2-27}就是格林函数$G_0(\mathbf{r}, \mathbf{r}', \omega)$用简正模式展开的表达式。在腔与腔之间为弱耦合时，当我们求得单个腔体的格林函数之后，就可以通过腔体耦合的边界情况及其格林函数积分公式求得声场分布。
+
+\section{小结}
+本章介绍了声-电类比方法和简正模式与格林函数的推导，这两种方法有着不同的适用条件，在之后的章节中可以看到这两种方法在研究由腔管结构组成的拓扑绝缘体时非常有用。一方面，当结构尺寸远大于波长的时候，腔体内均匀振动通过声-电类比天然近似为集总参数模型，这与离散的晶格结构存在着某种对应方式；另一方面当多个腔体处于同一共振模式的时候，我们认为它们的连接是弱耦合的，可以通过单个腔体格林函数进行声学近似，这使得整个问题得到简化。
