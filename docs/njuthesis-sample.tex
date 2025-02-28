@@ -36,7 +36,7 @@
     %
     %   页面模式，详见手册说明
     % draft,                  % 开启草稿模式
-    % anonymous,              % 开启盲审模式
+    anonymous,              % 开启盲审模式
     % minimal,                % 开启最小化模式
     %
     %   单双面模式，默认为适合印刷的双面模式
@@ -53,8 +53,8 @@
 \input{njuthesis-setup.def}
 
 % 自行载入所需宏包
-\usepackage{bm}
 \usepackage{amsmath}
+\usepackage{bm}
 \usepackage{textcomp}
 % \usepackage{subcaption} % 嵌套小幅图像，比 subfig 和 subfigure 更新更好
 % \usepackage{siunitx} % 标准单位符号
@@ -83,35 +83,35 @@
 \raggedbottom
 
 \begin{abstract}
-  声学作为经典波动系统的重要分支，其与凝聚态物理中拓扑物态的交叉研究为新型声学功能材料的设计与应用开辟了全新路径。本文聚焦于声学拓扑绝缘体的理论建模、拓扑态调控及功能应用，结合电声类比、格林函数分析、紧束缚模型等方法对声学拓扑结构进行理论分析，系统探究了多种声学拓扑系统的构建机制，并在实验上验证了拓扑边界态的鲁棒传播、彩虹俘获效应及类量子拓扑态的经典模拟。研究不仅深化了对经典波系统中拓扑现象的理解，还为声学器件的设计与应用提供了创新思路。
+  声学系统作为经典波动系统的重要分支，其与凝聚态物理中拓扑物态的交叉研究为新型声学功能材料的设计与应用开辟了全新路径。本文聚焦于声学拓扑绝缘体的理论建模、拓扑态调控及功能应用，结合声电类比、格林函数分析、紧束缚模型等方法对声学拓扑结构进行理论分析，系统探究了多种声学拓扑系统的构建机制，并在实验上验证了拓扑边界态的鲁棒传播性质、声彩虹捕获效应及马约拉纳零能模的声学模拟。研究不仅深化了对经典波系统中拓扑现象的理解，还为声学器件的设计与应用提供了创新思路。
 
-  在第一章中，我们从声学与拓扑物理的交叉背景出发，梳理了声学超材料与拓扑绝缘体的研究进展。声子晶体与局域共振理论的发展为声波调控奠定了基础，而拓扑物理的引入则赋予声学系统独特的鲁棒边界态。通过对比电子系统与声学系统的相似性，揭示了声学拓扑绝缘体的核心特征：受拓扑保护的边界态对缺陷与无序的免疫性。在此基础上，提出了本文的研究框架，即通过声学腔管结构的等效建模，探索高阶拓扑态、彩虹捕获及量子拓扑效应的经典实现。
+  在第一章中，我们从声学与拓扑物理的交叉背景出发，梳理了声学超材料与拓扑绝缘体的研究进展。声子晶体与局域共振理论的发展为声波调控奠定了基础，而拓扑物理的引入则赋予声学系统独特的鲁棒边界态。通过对比电子系统与声学系统的相似性，我们揭示了声学拓扑绝缘体的核心特征：受拓扑保护的边界态对缺陷与无序的免疫性。在此基础上，我们提出了本文的研究框架，即通过声学腔管结构的等效建模，探索高阶拓扑态、彩虹捕获及量子拓扑效应的经典实现。
   
-  在第二章中，我们着重于建立了声学拓扑晶体绝缘体的理论模型的涉及方法。基于电声类比方法，将亚波长腔管结构等效为集总参数电路，推导了声容、声质量与声阻的数学表达，构建了声压-体积速度的等效电路模型。进一步，针对多腔耦合系统，利用刚性腔的简正模式展开与格林函数积分方法，建立了弱耦合条件下的声场分布理论。该模型为后续章节的拓扑态研究提供了普适性分析工具，揭示了声学参数（如腔体尺寸、导管阻抗）与紧束缚模型中跳跃项、在位势的严格对应关系。
+  在第二章中，我们着重于建立了声学拓扑晶体绝缘体的理论模型的涉及方法。基于声电类比方法，我们将亚波长腔管结构等效为集总参数电路，推导了声容、声质量与声阻的数学表达，构建了声压-体积速度的等效电路模型。进一步，针对多腔耦合系统，我们利用刚性腔的简正模式展开与格林函数积分方法，建立了弱耦合条件下的声场分布理论。该模型为后续章节的拓扑态研究提供了普适性分析工具，揭示了声学参数（如腔体尺寸、导管阻抗）与紧束缚模型中跳跃项、在位势的严格对应关系。
   
-  在第三章中，我们以Kagome晶格为研究对象，实现了高阶声学拓扑绝缘体的设计与验证。通过声-电类比严格推导了二维Kagome晶格的声学哈密顿量，阐明了其拓扑相变机制：在无限周期结构中，能带反转诱导非平庸拓扑；在有限结构中，边界条件（硬/软边界）直接影响边缘晶格在位势，仅软边界可支持受保护的高阶角态。有限元模拟表明，Kagome声学晶格在三角排列下可稳定激发角态，且其频率特性与理论预测一致。研究突破了传统拓扑绝缘体对“真空包裹”条件的依赖，为任意频率拓扑态的设计提供了通用方法。
+  在第三章中，我们以Kagome晶格为研究对象，实现了高阶声学拓扑绝缘体的设计与验证。我们通过声电类比严格推导了二维Kagome晶格的声学哈密顿量，并阐明了其拓扑相变机制：在无限周期结构中，能带反转诱导非平庸拓扑；在有限结构中，边界条件直接影响边缘晶格在位势。从这个角度出发，我们研究发现仅软边界可支持受保护的高阶角态。有限元模拟表明，Kagome声学晶格在三角排列下可稳定激发角态，且其频率特性与理论预测一致。该研究突破了传统拓扑绝缘体对“真空包裹”条件的依赖，为任意频率拓扑态的设计提供了通用方法。
   
-  在第四章中，我们提出基于$C_4$对称的声学拓扑晶体绝缘体，实现了拓扑边界态群速度的主动调控与声波彩虹俘获。通过构建二维SSH模型，揭示了表面阻抗对紧束缚模型在位势的调控作用：调节边界声阻可独立改变拓扑态的群速度，而无需修改体结构。基于此，设计了一种亚波长拓扑彩虹俘获器原型，通过渐变的表面阻抗使不同频率声波局域于边界特定位置。实验与仿真结果表明，该结构在500-1500 Hz范围内实现了宽带声能分离，且拓扑保护特性显著提升了俘获效率与鲁棒性。这一成果为声学传感、能量收集及信息处理提供了新范式。
+  在第四章中，我们基于$C_4$对称的声学拓扑晶体绝缘体，实现了拓扑边界态群速度的主动调控与声波彩虹捕获。通过构建二维Su-Schrieffer-Heeger模型，我们揭示了表面阻抗对紧束缚模型在位势的调控作用：调节边界声阻抗可对应与调节理论模型里的在位势，进而可以独立地改变拓扑态的群速度，而无需修改体的结构。基于这一结论，我们设计了一种亚波长拓扑彩虹捕获器原型，其渐变的表面阻抗使得不同频率的声波局域于边界特定位置。实验与仿真结果表明，该结构在500-1500 Hz范围内实现了宽带声能分离，且拓扑保护特性显著提升了捕获效率与鲁棒性。这一成果为声学传感、能量收集及信息处理提供了新的思路。
   
-  在第五章中，我们首次在经典波系统中实现了Kitaev链的声学模拟，并观测到类马约拉纳零模。通过设计一维共振腔链，引入交替调节的“化学势”（腔体共振频率）与“超导配对势”（腔间耦合相位），构造了严格对应于无自旋p波超导链的声学哈密顿量。数值与实验结果表明，拓扑非平庸相下，链两端出现局域化零能模，其波函数分布满足马约拉纳费米子的自共轭特性。进一步，通过“声学键盘”结构动态调控耦合参数，实现了零模的创建、传输与融合，验证了其准粒子行为。该工作为宏观尺度探索非阿贝尔统计特性提供了经典平台。
+  在第五章中，我们首次在经典波系统中实现了Kitaev链的声学模拟，并观测到类马约拉纳零模。通过设计一维共振腔链并引入交替调节的“化学势”（腔体共振频率）与“超导配对势”（腔间耦合相位），我们构造了严格对应于无自旋p波超导链的声学哈密顿量。数值与实验结果表明，拓扑非平庸相下，链两端出现局域化零能模，其波函数分布满足马约拉纳费米子的自共轭特性。进一步，我们通过“声学键盘”结构动态调控耦合参数，实现了零模的产生、输运与融合，验证了其准粒子行为。该工作为宏观尺度探索非阿贝尔统计特性提供了经典平台。
   
-  第六章则总结了全文研究内容，并展望了未来方向。理论方面，需进一步探索三维声学拓扑态及强耦合系统的非线性效应；应用方面，拓扑彩虹俘获器在噪声控制与声通信中潜力显著，而Kitaev链的声学实现为拓扑量子计算的经典模拟奠定了基础。此外，如何将拓扑声学与智能材料、可编程超表面结合，实现动态可重构器件，是下一阶段的重要课题。
+  第六章则总结了全文研究内容，并展望了未来方向。理论方面，仍需进一步探索三维声学拓扑态及强耦合系统的非线性效应；应用方面，如何将拓扑声学与智能材料、可编程超表面结合，实现动态可重构器件，是下一阶段的重要课题。
 \end{abstract}
 
 \begin{abstract*}
-  As an important branch of the classical wave system, the interdisciplinary research between acoustics and topological states in condensed matter physics has opened up new avenues for the design and application of novel acoustic functional materials. This paper focuses on the theoretical modeling, topological state regulation, and functional applications of acoustic topological insulators. By combining methods such as electro-acoustic analogy, Green's function analysis, and tight-binding model, a theoretical analysis of acoustic topological structures is carried out. The construction mechanisms of various acoustic topological systems are systematically explored, and the robust propagation of topological boundary states, the rainbow trapping effect, and the classical simulation of quantum topological states are experimentally verified. The research not only deepens the understanding of topological phenomena in classical wave systems but also provides innovative ideas for the design and application of acoustic devices.
+  As an important branch of the classical wave systems, the interdisciplinary research between acoustics systems and topological states in condensed matter physics has opened up new avenues for the design and application of novel acoustic functional materials. This paper focuses on the theoretical modeling, topological state regulation, and functional applications of acoustic topological insulators. By combining methods such as acoustic-electrical analogy, Green's function analysis, and tight-binding model, a theoretical analysis of acoustic topological structures is carried out. The construction mechanisms of various acoustic topological systems are systematically explored, and the robust propagation of topological boundary states, the rainbow trapping effect, and the classical simulation of Majorana-like zero modes are experimentally verified. The research not only deepens the understanding of topological phenomena in classical wave systems but also provides innovative ideas for the design and application of acoustic devices.
 
-  In Chapter 1, starting from the interdisciplinary background of acoustics and topological physics, we review the research progress of acoustic metamaterials and topological insulators. The development of phonon crystals and local resonance theories has laid the foundation for sound wave regulation, and the introduction of topological physics endows acoustic systems with unique robust boundary states. By comparing the similarities between electronic systems and acoustic systems, the core characteristics of acoustic topological insulators are revealed: the immunity of topologically protected boundary states to defects and disorders. On this basis, the research framework of this paper is proposed, that is, through the equivalent modeling of acoustic cavity-tube structures, to explore the classical realization of higher-order topological states, rainbow trapping, and quantum topological effects.
+  In Chapter 1, starting from the interdisciplinary background of acoustics and topological physics, we review the research progress of acoustic metamaterials and topological insulators. The development of phononic crystals and local resonance theories has laid the foundation for sound wave regulation, and the introduction of topological physics endows acoustic systems with unique robust boundary states. By comparing the similarities between electronic systems and acoustic systems, the core characteristics of acoustic topological insulators are revealed: the immunity of topologically protected boundary states to defects and disorders. Based on this foundation, we propose the research framework of this study: by establishing equivalent models for acoustic cavity-tube structures, we aim to explore the classical realization of higher-order topological states, rainbow trapping effects, and quantum-inspired topological phenomena.
   
-  In Chapter 2, we focus on establishing the methods involved in the theoretical model of acoustic topological crystal insulators. Based on the electro-acoustic analogy method, the sub-wavelength cavity-tube structure is equivalent to a lumped parameter circuit. The mathematical expressions of acoustic capacitance, acoustic mass, and acoustic resistance are derived, and an equivalent circuit model of sound pressure - volume velocity is constructed. Furthermore, for the multi-cavity coupling system, using the normal mode expansion of the rigid cavity and the Green's function integration method, a theoretical model of the sound field distribution under weak coupling conditions is established. This model provides a universal analytical tool for the topological state research in subsequent chapters and reveals the strict correspondence between acoustic parameters (such as cavity size, duct impedance) and the hopping terms and on-site potentials in the tight-binding model.
+  In Chapter 2, we focus on establishing the methods involved in the theoretical model of acoustic topological crystal insulators. Based on the acoustic-electrical analogy method, the sub-wavelength cavity-tube structure is equivalent to a lumped parameter circuit. The mathematical expressions of acoustic capacitance, acoustic mass, and acoustic resistance are derived, and an equivalent circuit model of sound pressure-volume velocity is constructed. Furthermore, for the multi-cavity coupling system, using the normal mode expansion of the rigid cavity and the Green's function integration method, a theoretical model of the sound field distribution under weak coupling conditions is established. This model establishes a universal analytical framework for investigating topological states in subsequent chapters, while also elucidating the rigorous correspondence between acoustic parameters (e.g., cavity size and duct impedance) and the hopping terms as well as on-site potentials within the tight-binding model.
   
-  In Chapter 3, taking the Kagome lattice as the research object, we achieve the design and verification of higher-order acoustic topological insulators. Through the acoustic - electrical analogy, the acoustic Hamiltonian of the two-dimensional Kagome lattice is strictly derived, and its topological phase transition mechanism is elucidated: in the infinite periodic structure, the band inversion induces a non-trivial topology; in the finite structure, the boundary conditions (hard/soft boundaries) directly affect the on-site potential of the edge lattice, and only the soft boundary can support the protected higher-order corner states. Finite element simulations show that the Kagome acoustic lattice can stably excite corner states in a triangular arrangement, and its frequency characteristics are consistent with the theoretical predictions. The research breaks through the dependence of traditional topological insulators on the "vacuum encapsulation" condition and provides a general method for the design of topological states at any frequency.
+  In Chapter 3, taking the Kagome lattice as the research object, we achieve the design and verification of higher-order acoustic topological insulators. Through the acoustic-electrical analogy, the acoustic Hamiltonian of the two-dimensional Kagome lattice is strictly derived, and its topological phase transition mechanism is elucidated: in the infinite periodic structure, the band inversion induces a non-trivial topology; in the finite structure, the boundary conditions directly affect the on-site potential of the edge lattice. From this perspective, our research findings indicate that only soft boundaries can support protected high-order topological states. Finite element simulations show that the Kagome acoustic lattice can stably excite corner states in a triangular arrangement, and its frequency characteristics are consistent with the theoretical predictions. The research breaks through the dependence of traditional topological insulators on the "vacuum encapsulation" condition and provides a general method for the design of topological states at any frequency.
   
-  In Chapter 4, we propose an acoustic topological crystal insulator based on $C_4$ symmetry and achieve the active regulation of the group velocity of topological boundary states and the rainbow trapping of sound waves. By constructing a two-dimensional SSH model, the regulation effect of surface impedance on the on-site potential of the tight-binding model is revealed: adjusting the boundary acoustic resistance can independently change the group velocity of the topological state without modifying the bulk structure. Based on this, a prototype of a sub-wavelength topological rainbow trap is designed, and different frequency sound waves are localized at specific positions on the boundary through the gradually changing surface impedance. Experimental and simulation results show that this structure achieves broadband acoustic energy separation in the range of 500 - 1500 Hz, and the topological protection characteristics significantly improve the trapping efficiency and robustness. This achievement provides a new paradigm for acoustic sensing, energy harvesting, and information processing.
+  In Chapter 4, we propose an acoustic topological crystal insulator based on $C_4$ symmetry and achieve the active regulation of the group velocity of topological boundary states and the rainbow trapping of sound waves. By constructing a two-dimensional Su-Schrieffer-Heeger model, the regulation effect of surface impedance on the on-site potential of the tight-binding model is revealed: adjusting the boundary acoustic resistance can independently change the group velocity of the topological state without modifying the bulk structure. Based on this, a prototype of a sub-wavelength topological rainbow trap is designed, and different frequency sound waves are localized at specific positions on the boundary through the gradually changing surface impedance. Experimental and simulation results show that this structure achieves broadband acoustic energy separation in the range of 500-1500 Hz, and the topological protection characteristics significantly improve the trapping efficiency and robustness. This achievement provides a new paradigm for acoustic sensing, energy harvesting, and information processing.
   
-  In Chapter 5, we realize the acoustic simulation of the Kitaev chain in the classical wave system for the first time and observe the Majorana-like zero mode. By designing a one-dimensional resonant cavity chain and introducing alternately adjusted "chemical potential" (cavity resonant frequency) and "superconducting pairing potential" (coupling phase between cavities), an acoustic Hamiltonian strictly corresponding to the spinless p-wave superconducting chain is constructed. Numerical and experimental results show that in the topologically non-trivial phase, localized zero-energy modes appear at both ends of the chain, and their wave function distributions satisfy the self-conjugate characteristics of Majorana fermions. Furthermore, through the "acoustic keyboard" structure to dynamically regulate the coupling parameters, the creation, transmission, and fusion of zero modes are realized, verifying their quasiparticle behavior. This work provides a classical platform for exploring non-Abelian statistics at the macroscopic scale.
+  In Chapter 5, we realize the acoustic simulation of the Kitaev chain in the classical wave system for the first time and observe the Majorana-like zero modes. By designing a one-dimensional resonant cavity chain and introducing alternately adjusted "chemical potential" (cavity resonant frequency) and "superconducting pairing potential" (coupling phase between cavities), an acoustic Hamiltonian strictly corresponding to the spinless p-wave superconducting chain is constructed. Numerical and experimental results show that in the topologically non-trivial phase, localized zero-energy modes appear at both ends of the chain, and their wave function distributions satisfy the self-conjugate characteristics of Majorana fermions. Furthermore, through the "acoustic keyboard" structure to dynamically regulate the coupling parameters, the creation, transmission, and fusion of zero modes are realized, verifying their quasiparticle behavior. This work provides a classical platform for exploring non-Abelian statistics at the macroscopic scale.
   
-  Chapter 6 summarizes the research content of the full text and looks forward to future directions. Theoretically, it is necessary to further explore three-dimensional acoustic topological states and the nonlinear effects of strongly coupled systems; in terms of application, the topological rainbow trap has significant potential in noise control and acoustic communication, and the acoustic realization of the Kitaev chain lays the foundation for the classical simulation of topological quantum computing. In addition, how to combine topological acoustics with intelligent materials and programmable metasurfaces to realize dynamically reconfigurable devices is an important topic for the next stage. 
+	Chapter 6 summarizes the key findings of the study and outlines future research directions. Theoretically, further exploration is warranted for three-dimensional acoustic topological states and nonlinear effects in strongly coupled systems. On the application front, integrating topological acoustics with smart materials and programmable metasurfaces to realize dynamically reconfigurable devices stands as a critical challenge for the next phase of research.
 \end{abstract*}
 
 % 生成目录
@@ -164,7 +164,8 @@
   
   首先，我要衷心感谢我的导师程建春老师和邹欣晔老师。从论文的选题、研究方案的设计，到具体的实验操作、论文的撰写与修改，每一个环节都凝聚着导师的心血和智慧。课题组严谨的治学态度、敏锐的学术洞察力和科学的研究方法，如明灯照亮我在学术道路上前行。老师不仅在学术上给予我悉心指导，更在生活中关心我的成长，教会我如何做学问、如何做人。您的教诲如春风化雨，让我受益终身。师恩如山，我将永远铭记。
   
-  感谢课题组的各位老师，梁彬老师，杨京老师等，你们精彩的授课和前沿的学术报告拓宽了我的学术视野，为我的研究奠定了坚实的理论基础。你们在学术上的严谨和对学生的关爱，让我深刻体会到了学者的风范和师者的责任。
+  感谢课题组的各位老师，梁彬老师，杨京老师等，你们精彩的授课和前沿
+的学术报告拓宽了我的学术视野，为我的研究奠定了坚实的理论基础。你们在学术上的严谨和对学生的关爱，让我深刻体会到了学者的风范和师者的责任。
   
   感谢实验室的刘广升，刘铭颢，彭尧吟，杨彰昭，韩冬雨，陈晋恒，李鑫，杨文杰，张志磊，李石峰，卢杰煜，冯楚尧，裴宁我，王昶淳，张龙发，蔡增昕，许铭轩，喻杰，左玲铭等各位同学，在实验过程中，我们相互帮助、相互鼓励，共同攻克了一个又一个难题。那些在实验室里并肩作战的日子，是我博士生涯中最宝贵的回忆。你们的陪伴和支持，让我在科研的道路上不再孤单。
   
@@ -190,7 +191,34 @@
 \njuchapter{学术成果}
 {
 \setstretch{1.5} % 局部设置 1.2 倍行距
-\njupaperlist[攻读博士学位期间发表的学术论文]{my_1,my_2,my_3,my_4,my_5,my_6,my_7}
+%\njupaperlist[攻读博士学位期间发表的学术论文]{my_1,my_2,my_3,my_4,my_5,my_6,my_7}\njuchapter{攻读博士学位期间发表的学术论文}
+% \njupaperlist[攻读博士学位期间发表的学术论文]
+\noindent
+第一作者论文：
+\begin{enumerate}[label=(\arabic*)]  % label=(\arabic*) 表示编号格式为 (1), (2), ...
+    \item Phys. Rev. B, 2023
+    \item Phys. Rev. Appl., 2022
+    \item Phys. Rev. Appl., 2021
+\end{enumerate}
+
+\noindent
+第二作者论文：
+\begin{enumerate}[label=(\arabic*)]  % label=(\arabic*) 表示编号格式为 (1), (2), ...
+    \item Phys. Rev. B, 2021
+    \item Appl. Phys. Lett., 2023
+\end{enumerate}
+
+\noindent
+第三作者论文：
+\begin{enumerate}[label=(\arabic*)]  % label=(\arabic*) 表示编号格式为 (1), (2), ...
+    \item Appl. Phys. Lett., 2022
+\end{enumerate}
+
+\noindent
+第四作者论文：
+\begin{enumerate}[label=(\arabic*)]  % label=(\arabic*) 表示编号格式为 (1), (2), ...
+    \item Appl. Phys. Lett., 2022
+\end{enumerate}
 }
 %---------------------------------------------------------------------
 %	附录部分

@@ -11,13 +11,13 @@
 % info 类用于录入个人信息
 %   带*号的为对应英文字段
 \njusetup[info]{
-    title = {声学拓扑绝缘体中拓扑效应的机理与应用研究},
+    title = {声学拓扑效应的机理与应用研究},
     % title = {第一行标题\\第二行标题\\第三行标题},
     % 中文题目
     % 直接填写标题就是自动换行
     % 可以使用换行控制符(\\)手动指定换行位置
     %
-    title* = {Research on the Mechanism and Applications of Topological Effects in Acoustic Topological Insulators},
+    title* = {Mechanism and Application Research of Acoustic Topological Effects},
     % 英文题目
     %
     author = {管安洋},
@@ -31,7 +31,7 @@
     % 中文关键词列表
     % 使用英文半角逗号(,)分隔
     %
-    keywords* = {Acoustic Metamaterials,Phononic Crystals,Higher-Order Topological Insulators,Topological Boundary States{It Is}},
+    keywords* = {Acoustic Metamaterials,Phononic Crystals,Higher-Order Topological Insulators,Topological Boundary States},
     % 英文关键词
     % 使用英文半角逗号(,)分隔
     %
@@ -64,7 +64,7 @@
     % 第二导师全称
     % 如果确实没有第二导师，不填写即可
     %
-    submit-date = {2025-05-20},
+    submit-date = {2025-03-01},
     % 提交日期
     % 格式为 yyyy-mm-dd
     % 不填就是编译当天日期
@@ -92,16 +92,16 @@
     % 答辩委员会成员
     % 一般为四名，使用英文半角逗号(,)分隔
     %
-    clc = {O643.12},
+    clc = {O42},
     % 中国图书分类号
     %
-    udc = {544.4},
+    udc = {534},
     % 国际图书分类号
     %
     secret-level = {公开},
     % 密级
     %
-    defend-date = {2022-05-21},
+    defend-date = {2025-05-21},
     % 答辩日期
     % 格式为 yyyy-mm-dd
     % 不填就是编译当天日期
